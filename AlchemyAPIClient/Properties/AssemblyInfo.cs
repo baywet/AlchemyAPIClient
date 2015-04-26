@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("AlchemyAPIClient")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Allows you to simply query www.alchemyapi.com from .net applications")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Vincent BIRET")]
 [assembly: AssemblyProduct("AlchemyAPIClient")]
