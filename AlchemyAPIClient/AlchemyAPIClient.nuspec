@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>AlchemyAPIClient</id>
+    <version>1.0</version>
+    <authors>Vincent BIRET</authors>
+    <owners>Vincent BIRET</owners>
+    <licenseUrl>https://github.com/baywet/AlchemyAPIClient/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/baywet/AlchemyAPIClient</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Simple implementation of service calls to www.alchemyAPI.com for natural language processing.</description>
+    <tags>alchemy API json NLP keywords entities</tags>
+    <dependencies>
+      <dependency id="Newtonsoft.Json" version="6.0" />
+    </dependencies>
+  </metadata>
+</package>
