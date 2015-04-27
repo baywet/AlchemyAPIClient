@@ -25,7 +25,9 @@ namespace AlchemyAPIClient.Requests
                 throw new ArgumentNullException("_client");
             AdditionalParameters = new NameValueCollection();
             client = _client;
+            ThrowExceptionsOnErrors = true;
         }
+        public bool ThrowExceptionsOnErrors { get; set; }
         protected AlchemyClient client { get; set; }
         private NameValueCollection AdditionalParameters { get; set; }
         public virtual async Task<responseType> GetResponse()
@@ -44,7 +46,10 @@ namespace AlchemyAPIClient.Requests
 
                 var responseBytes = await wreq.UploadValuesTaskAsync(address, "POST", AdditionalParameters);
                 var textResponse = UTF8Encoding.UTF8.GetString(responseBytes);
-                return JsonConvert.DeserializeObject<responseType>(textResponse);
+                var typedResponse = JsonConvert.DeserializeObject<responseType>(textResponse);
+                if (ThrowExceptionsOnErrors && typedResponse.Status == AlchemyAPIResponseStatus.ERROR)
+                    throw new AlchemiAPIServiceCallException(typedResponse.StatusInfo);
+                return typedResponse;
             }
         }
         protected void AddOrUpdateParameter(string name, int value)

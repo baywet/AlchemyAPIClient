@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlchemiAPIServiceCallException.cs" />
     <Compile Include="AlchemyClient.cs" />
     <Compile Include="AlchemyConcept.cs" />
     <Compile Include="AlchemyDisambiguation.cs" />
