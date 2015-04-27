@@ -68,7 +68,10 @@ namespace AlchemyAPIClient.Requests
         protected void AddOrUpdateParameter(string name, string value)
         {
             if (AdditionalParameters.AllKeys.Contains(name))
-                AdditionalParameters[name] = value;
+                if (string.IsNullOrEmpty(value))
+                    AdditionalParameters.Remove(name);
+                else
+                    AdditionalParameters[name] = value;
             else
                 AdditionalParameters.Add(name, value);
         }
