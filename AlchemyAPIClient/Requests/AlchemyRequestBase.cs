@@ -1,4 +1,5 @@
-﻿using AlchemyAPIClient.Responses;
+﻿using AlchemyAPIClient.Exceptions;
+using AlchemyAPIClient.Responses;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -48,7 +49,7 @@ namespace AlchemyAPIClient.Requests
                 var textResponse = UTF8Encoding.UTF8.GetString(responseBytes);
                 var typedResponse = JsonConvert.DeserializeObject<responseType>(textResponse);
                 if (ThrowExceptionsOnErrors && typedResponse.Status == AlchemyAPIResponseStatus.ERROR)
-                    throw new AlchemiAPIServiceCallException(typedResponse.StatusInfo);
+                    throw AlchemyAPIServiceCallException.GetValidException(typedResponse.StatusInfo);
                 return typedResponse;
             }
         }
