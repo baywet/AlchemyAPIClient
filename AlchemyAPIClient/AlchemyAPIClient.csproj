@@ -52,6 +52,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AlchemyAPIClientResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="AlchemyTaxonomy.cs" />
     <Compile Include="Exceptions\AlchemyAPICannotRetrieveException.cs" />
     <Compile Include="Exceptions\AlchemyAPIPageNotHTMLException.cs" />
     <Compile Include="Exceptions\AlchemyAPIServiceCallException.cs" />
@@ -89,11 +90,17 @@
     <Compile Include="Requests\Sentiment\AlchemyUrlSentimentRequest.cs" />
     <Compile Include="Requests\Keywords\KeyWordExtractModeType.cs" />
     <Compile Include="Requests\SourceTextType.cs" />
+    <Compile Include="Requests\Taxonomies\AlchemyHtmlTaxonomiesRequest.cs" />
+    <Compile Include="Requests\Taxonomies\AlchemyHtmlTaxonomiesRequestBase.cs" />
+    <Compile Include="Requests\Taxonomies\AlchemyTaxonomiesRequestBase.cs" />
+    <Compile Include="Requests\Taxonomies\AlchemyTextTaxonomiesRequest.cs" />
+    <Compile Include="Requests\Taxonomies\AlchemyUrlTaxonomiesRequest.cs" />
     <Compile Include="Responses\AlchemyConceptsResponse.cs" />
     <Compile Include="Responses\AlchemyEntitiesResponse.cs" />
     <Compile Include="Responses\AlchemyKeywordsResponse.cs" />
     <Compile Include="Responses\AlchemyResponseBase.cs" />
     <Compile Include="Responses\AlchemySentimentResponse.cs" />
+    <Compile Include="Responses\AlchemyTaxonomiesResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
