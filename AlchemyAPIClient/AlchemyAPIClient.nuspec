@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>AlchemyAPIClient</id>
-	<title>AlhemyAPIClient</title>
+	<title>AlchemyAPIClient</title>
     <version>1.1.0</version>
     <authors>Vincent BIRET</authors>
     <owners>Vincent BIRET</owners>
