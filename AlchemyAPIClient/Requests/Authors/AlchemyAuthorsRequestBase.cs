@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AlchemyAPIClient.Requests
 {
-    public abstract class AlchemyAuthorsRequestBase: AlchemyRequestBase<List<string>, AlchemyAuthorsResponse>
+    public abstract class AlchemyAuthorsRequestBase : AlchemyRequestBase<AlchemyAuthors, AlchemyAuthorsResponse>
     {
         protected const string urlKey = "url";
         public AlchemyAuthorsRequestBase(AlchemyClient client)

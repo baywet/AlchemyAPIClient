@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace AlchemyAPIClient.Responses
 {
-    public class AlchemyAuthorsResponse : AlchemyResponseBase<List<string>>
+    public class AlchemyAuthorsResponse : AlchemyResponseBase<AlchemyAuthors>
     {
-        public List<string> Authors { get; set; }
+        public AlchemyAuthors Authors { get; set; }
     }
 }

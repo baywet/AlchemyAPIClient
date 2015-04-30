@@ -58,6 +58,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AlchemyAPIClientResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="AlchemyAuthors.cs" />
     <Compile Include="AlchemyTaxonomy.cs" />
     <Compile Include="Exceptions\AlchemyAPICannotLocateAuthorException.cs" />
     <Compile Include="Exceptions\AlchemyAPICannotRetrieveException.cs" />
