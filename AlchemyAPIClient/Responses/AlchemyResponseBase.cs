@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AlchemyAPIClient.Responses
 {
-    public abstract class AlchemyResponseBase<T> where T : class
+    public abstract class AlchemyResponseBase<T>
     {
         public AlchemyAPIResponseStatus Status { get; set; }
         public string Usage { get; set; }
