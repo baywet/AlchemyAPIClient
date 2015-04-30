@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AlchemyAPIClient.Requests
 {
-    public abstract class AlchemyUrlAuthorsRequest: AlchemyAuthorsRequestBase
+    public class AlchemyUrlAuthorsRequest: AlchemyAuthorsRequestBase
     {
         public AlchemyUrlAuthorsRequest(Uri url, AlchemyClient client)
             : base(client)
