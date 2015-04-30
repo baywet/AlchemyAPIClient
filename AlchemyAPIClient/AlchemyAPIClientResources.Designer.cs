@@ -61,6 +61,15 @@ namespace AlchemyAPIClient {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cannot locate the author of this resource.
+        /// </summary>
+        internal static string cannot_locate_author_error {
+            get {
+                return ResourceManager.GetString("cannot_locate_author_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cannot retrieve content for analysis.
         /// </summary>
         internal static string cannot_retrieve_error {
@@ -75,6 +84,15 @@ namespace AlchemyAPIClient {
         internal static string invalid_key_error {
             get {
                 return ResourceManager.GetString("invalid_key_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Multiple candidates for author of this resource.
+        /// </summary>
+        internal static string multiple_author_candidates_error {
+            get {
+                return ResourceManager.GetString("multiple_author_candidates_error", resourceCulture);
             }
         }
         

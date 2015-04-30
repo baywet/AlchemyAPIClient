@@ -10,7 +10,7 @@ namespace AlchemyAPIClient.Exceptions
     {
         internal static AlchemyAPIServiceCallException GetValidException(string subStatus)
         {
-            switch(subStatus)
+            switch (subStatus)
             {
                 case "invalid-api-key":
                     return new AlchemyAPIInvalidKeyException();
@@ -20,6 +20,10 @@ namespace AlchemyAPIClient.Exceptions
                     return new AlchemyAPIPageNotHTMLException();
                 case "unsupported-text-language":
                     return new AlchemyAPIUnsupportedLanguageException();
+                case "author-not-found:cannot-locate":
+                    return new AlchemyAPICannotLocateAuthorException();
+                case "author-not-found:multiple-candidates":
+                    return new AlchemyAPIMultipleAuthorCandidatesException();
                 default:
                     return new AlchemyAPIServiceCallException(subStatus);
             }
