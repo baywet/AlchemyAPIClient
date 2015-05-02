@@ -90,8 +90,11 @@
     <Compile Include="Requests\Concepts\AlchemyHtmlConceptsRequestBase.cs" />
     <Compile Include="Requests\Entities\AlchemyHtmlEntitiesRequestBase.cs" />
     <Compile Include="Requests\Entities\AlchemyHtmlEntitiesRequest.cs" />
+    <Compile Include="Requests\Language\AlchemyHtmlLanguageRequest.cs" />
+    <Compile Include="Requests\Language\AlchemyHtmlLanguageRequestBase.cs" />
     <Compile Include="Requests\Language\AlchemyLanguageRequestBase.cs" />
     <Compile Include="Requests\Language\AlchemyTextLanguageRequest.cs" />
+    <Compile Include="Requests\Language\AlchemyUrlLanguageRequest.cs" />
     <Compile Include="Requests\Sentiment\AlchemyHtmlSentimentBase.cs" />
     <Compile Include="Requests\Sentiment\AlchemyHtmlSentimentRequest.cs" />
     <Compile Include="Requests\Keywords\AlchemyKeywordsRequestBase.cs" />
