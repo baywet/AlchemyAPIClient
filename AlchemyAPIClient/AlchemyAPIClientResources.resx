@@ -123,6 +123,9 @@
   <data name="cannot_retrieve_error" xml:space="preserve">
     <value>Cannot retrieve content for analysis</value>
   </data>
+  <data name="content_exceeds_size_error" xml:space="preserve">
+    <value>The content exceeeds the size limit</value>
+  </data>
   <data name="invalid_key_error" xml:space="preserve">
     <value>Your API key is invalid please check on www.alchemyapi.com</value>
   </data>

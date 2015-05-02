@@ -24,6 +24,8 @@ namespace AlchemyAPIClient.Exceptions
                     return new AlchemyAPICannotLocateAuthorException();
                 case "author-not-found:multiple-candidates":
                     return new AlchemyAPIMultipleAuthorCandidatesException();
+                case "content-exceeds-size-limit":
+                    return new AlchemyAPIContentExceedsSizeLimitException();
                 default:
                     return new AlchemyAPIServiceCallException(subStatus);
             }

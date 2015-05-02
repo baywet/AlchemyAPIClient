@@ -79,6 +79,15 @@ namespace AlchemyAPIClient {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The content exceeeds the size limit.
+        /// </summary>
+        internal static string content_exceeds_size_error {
+            get {
+                return ResourceManager.GetString("content_exceeds_size_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Your API key is invalid please check on www.alchemyapi.com.
         /// </summary>
         internal static string invalid_key_error {

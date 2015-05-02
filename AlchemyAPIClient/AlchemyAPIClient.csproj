@@ -62,6 +62,7 @@
     <Compile Include="AlchemyTaxonomy.cs" />
     <Compile Include="Exceptions\AlchemyAPICannotLocateAuthorException.cs" />
     <Compile Include="Exceptions\AlchemyAPICannotRetrieveException.cs" />
+    <Compile Include="Exceptions\AlchemyAPIContentExceedsSizeLimitException.cs" />
     <Compile Include="Exceptions\AlchemyAPIMultipleAuthorCandidatesException.cs" />
     <Compile Include="Exceptions\AlchemyAPIPageNotHTMLException.cs" />
     <Compile Include="Exceptions\AlchemyAPIServiceCallException.cs" />
@@ -89,6 +90,8 @@
     <Compile Include="Requests\Concepts\AlchemyHtmlConceptsRequestBase.cs" />
     <Compile Include="Requests\Entities\AlchemyHtmlEntitiesRequestBase.cs" />
     <Compile Include="Requests\Entities\AlchemyHtmlEntitiesRequest.cs" />
+    <Compile Include="Requests\Language\AlchemyLanguageRequestBase.cs" />
+    <Compile Include="Requests\Language\AlchemyTextLanguageRequest.cs" />
     <Compile Include="Requests\Sentiment\AlchemyHtmlSentimentBase.cs" />
     <Compile Include="Requests\Sentiment\AlchemyHtmlSentimentRequest.cs" />
     <Compile Include="Requests\Keywords\AlchemyKeywordsRequestBase.cs" />
@@ -115,6 +118,7 @@
     <Compile Include="Responses\AlchemyConceptsResponse.cs" />
     <Compile Include="Responses\AlchemyEntitiesResponse.cs" />
     <Compile Include="Responses\AlchemyKeywordsResponse.cs" />
+    <Compile Include="Responses\AlchemyLanguageResponse.cs" />
     <Compile Include="Responses\AlchemyResponseBase.cs" />
     <Compile Include="Responses\AlchemySentimentResponse.cs" />
     <Compile Include="Responses\AlchemyTaxonomiesResponse.cs" />
