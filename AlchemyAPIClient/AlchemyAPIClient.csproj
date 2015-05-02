@@ -53,13 +53,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlchemyAction.cs" />
     <Compile Include="AlchemyAPIClientResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AlchemyAPIClientResources.resx</DependentUpon>
     </Compile>
     <Compile Include="AlchemyAuthors.cs" />
+    <Compile Include="AlchemyObject.cs" />
+    <Compile Include="AlchemyRelation.cs" />
+    <Compile Include="AlchemySubject.cs" />
     <Compile Include="AlchemyTaxonomy.cs" />
+    <Compile Include="AlchemyVerb.cs" />
     <Compile Include="Exceptions\AlchemyAPICannotLocateAuthorException.cs" />
     <Compile Include="Exceptions\AlchemyAPICannotRetrieveException.cs" />
     <Compile Include="Exceptions\AlchemyAPIContentExceedsSizeLimitException.cs" />
@@ -122,6 +127,7 @@
     <Compile Include="Responses\AlchemyEntitiesResponse.cs" />
     <Compile Include="Responses\AlchemyKeywordsResponse.cs" />
     <Compile Include="Responses\AlchemyLanguageResponse.cs" />
+    <Compile Include="Responses\AlchemyRelationsResponse.cs" />
     <Compile Include="Responses\AlchemyResponseBase.cs" />
     <Compile Include="Responses\AlchemySentimentResponse.cs" />
     <Compile Include="Responses\AlchemyTaxonomiesResponse.cs" />
