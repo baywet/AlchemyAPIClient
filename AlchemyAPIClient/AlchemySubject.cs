@@ -10,6 +10,7 @@ namespace AlchemyAPIClient
     {
         public string Text { get; set; }
         public AlchemySentiment Sentiment { get; set; }
-        public AlchemyEntity Entity { get; set; }
+        public List<AlchemyEntity> Entities { get; set; }
+        public List<AlchemyKeyword> Keywords { get; set; }
     }
 }
