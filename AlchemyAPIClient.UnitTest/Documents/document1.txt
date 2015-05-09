@@ -1,0 +1,17 @@
+﻿Neo4j has a ‘j’ appended to the name. And now it is available on Windows Azure? This proves that in the most unlikely of circumstances sometimes beautiful things can emerge. Microsoft has promised Java to be a valued “first class citizen” on Windows Azure. In this blog post we will show that it is no problem at all to host a sophisticated and complex server product such as the Neo4j graph database server on Window Azure. Since Neo4j has a REST API over HTTP you can speak to this server from your regular .NET (or Java) applications, inside or outside of the cloud just as easily as you speak to Windows Azure Storage.
+
+
+Intro
+
+This first version (1.0 “JFokus“) of our deployment is a bit simplified in some areas. Still it is a complete and fully functioning deploy of Neo4j to Windows Azure. We are already working on the next major release (2.0) which will be much more turn-key; just upload the application to Windows Azure and launch.
+Furthermore we have serious plans to use this approach, Neo4j in Windows Azure, on a live project where we are backing a server application with complex graph calculations. We will layer spatial and social graphs in combined searches on the server side and serve condensed search results to the client applications outside of the Cloud.
+This project is not a toy it’s the real deal and it runs very smoothly – Java runs with little or no hassle on Windows Azure!
+
+
+If you are a .NET developer reading this post
+
+What we have enabled for You, dear .NET developer, is to leverage a really powerful graph database and make it available in Your Windows Azure applications!
+
+
+You can think of Neo4j as a high-performance schema-free graph engine with all the features of a mature and robust database. The programmer works with an object-oriented, flexible network structure rather than with strict and static tables — yet enjoys all the benefits of a fully transactional, enterprise-strength database.
+The data model consists of Nodes, typed Relationships between Nodes and Key-Value pairs on both Nodes and Relationships, called Properties. This is how the Matrix characters and their relationships could look in a Neo4j data model:

@@ -1,0 +1,22 @@
+﻿Il s'agit d'une offre d'hébergement (applications et données) et de services (workflow, stockage et synchronisation des données, bus de messages, contacts…). Un ensemble d'API permet d'utiliser et d'accéder à cette plateforme et aux services associés. Un environnement d'exécution (le « Live Operating Environment ») permet une intégration étroite avec les principaux systèmes d'exploitation existant (Windows, Mac OS et Windows Phone).
+
+Le projet a été annoncé par le PDG de Microsoft Steve Ballmer lors de sa Professional Developers Conference, qui se tenait du 26 au 30 octobre 2008 à Los Angeles.
+
+La plateforme Windows Azure correspond aux offres d'informatique en nuage publics de type PaaS (maintenant) et IaaS de Microsoft. Elle est composée des éléments suivants:
+Windows Azure : les sites Web Windows Azure (PaaS). On peut y déployer (via FTP, WebDeploy, Git ou Team Foundation Services) des applications Web en PHP, Node.js, ASP.NET et plus généralement tout ce qui tourne sous Internet Information Services (IIS) 7.5. Certaines applications prêtes à l'emploi telles que des moteurs de CMS et blogs en PHP ou ASP.NET sont également disponibles. On peut associer à un site Web une base de données relationnelles qui peut être Windows Azure SQL Database
+MySql
+
+les rôles applicatifs (services cloud, de type PaaS): Web Role (pour exécuter des applications Web dans Internet Information Services IIS)
+Worker Role (pour faire tourner l'équivalent de services Windows)
+Quand les deux rôles précédents ne conviennent pas, il est également possible de charger soi-même une image de machine virtuelle. Il s'agit du VM Role. Il est à noter que ces instances de VM role sont sans état (stateless) à savoir que si la machine virtuelle redémarre, elle repart de l'image qu'on lui a fourni initialement.
+
+Les machines virtuelles dont l'état est persistant (IaaS) qui peuvent être sous différents types de systèmes d'exploitation: Windows Server. On peut typiquement y héberger des composants logiciels tels que SharePoint Server, SQL Server ou Active Directory, ou plus généralement des logiciels qui tournent dans ces environnements.
+Linux. Ces distributions sont proposées par des partenaires de Microsoft et s'exécutent au sein de la plateforme Windows Azure.
+
+le réseau virtuel (IaaS) qui permet de configurer les plages d'adresses dans lesquelles les machines virtuelles, voire les instances de rôles seront hébergées. Le réseau virtuel peut également être connecté par réseau privé virtuel (VPN) au réseau de l'entreprise.
+le stockage (Windows Azure storage) : les blobs (binary large object) : équivalent des fichiers
+les tables (non relationnelles) : ensembles de clefs/valeurs
+les queues qui sont une forme de MOM (Middleware Oriented Messages)
+les lecteurs (drives) qui permettent de voir depuis un rôle applicatif un disque virtuel (VHD) stocké dans un blob (voir plus haut)
+
+
