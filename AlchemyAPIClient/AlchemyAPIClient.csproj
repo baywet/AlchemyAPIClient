@@ -126,6 +126,13 @@
     <Compile Include="Requests\Taxonomies\AlchemyTaxonomiesRequestBase.cs" />
     <Compile Include="Requests\Taxonomies\AlchemyTextTaxonomiesRequest.cs" />
     <Compile Include="Requests\Taxonomies\AlchemyUrlTaxonomiesRequest.cs" />
+    <Compile Include="Requests\Text\AlchemyCleanTextRequestBase.cs" />
+    <Compile Include="Requests\Text\AlchemyHtmlCleanTextRequest.cs" />
+    <Compile Include="Requests\Text\AlchemyHtmlRawTextRequest.cs" />
+    <Compile Include="Requests\Text\AlchemyRawTextRequestBase.cs" />
+    <Compile Include="Requests\Text\AlchemyTextRequestBase.cs" />
+    <Compile Include="Requests\Text\AlchemyUrlCleanTextRequest.cs" />
+    <Compile Include="Requests\Text\AlchemyUrlRawTextRequest.cs" />
     <Compile Include="Responses\AlchemyAuthorResponse.cs" />
     <Compile Include="Responses\AlchemyAuthorsResponse.cs" />
     <Compile Include="Responses\AlchemyConceptsResponse.cs" />
@@ -136,6 +143,8 @@
     <Compile Include="Responses\AlchemyResponseBase.cs" />
     <Compile Include="Responses\AlchemySentimentResponse.cs" />
     <Compile Include="Responses\AlchemyTaxonomiesResponse.cs" />
+    <Compile Include="Responses\AlchemyTextResponse.cs" />
+    <Compile Include="Responses\AlchemyTitleResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="key.snk" />
@@ -155,7 +164,9 @@
       <LastGenOutput>AlchemyAPIClientResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Requests\Title\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>REM Create a NuGet package for this project and place the .nupkg file in the project's output directory.
