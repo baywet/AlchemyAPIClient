@@ -15,7 +15,7 @@ namespace AlchemyAPIClient.Requests
         }
         protected override string RequestPath
         {
-            get { throw new NotImplementedException(); }
+            get { return "url/URLGetRelations"; }
         }
     }
 }
