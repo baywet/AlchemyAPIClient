@@ -133,6 +133,9 @@
     <Compile Include="Requests\Text\AlchemyTextRequestBase.cs" />
     <Compile Include="Requests\Text\AlchemyUrlCleanTextRequest.cs" />
     <Compile Include="Requests\Text\AlchemyUrlRawTextRequest.cs" />
+    <Compile Include="Requests\Title\AlchemyHtmlTitleRequest.cs" />
+    <Compile Include="Requests\Title\AlchemyTitleRequestBase.cs" />
+    <Compile Include="Requests\Title\AlchemyUrlTitleRequest.cs" />
     <Compile Include="Responses\AlchemyAuthorResponse.cs" />
     <Compile Include="Responses\AlchemyAuthorsResponse.cs" />
     <Compile Include="Responses\AlchemyConceptsResponse.cs" />
@@ -164,9 +167,7 @@
       <LastGenOutput>AlchemyAPIClientResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Requests\Title\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>REM Create a NuGet package for this project and place the .nupkg file in the project's output directory.
