@@ -11,9 +11,10 @@ namespace AlchemyAPIClient.Requests
         protected const string sourceTextKey = "sourceText";
         protected const string cqueryKey = "cquery";
         protected const string xpathKey = "xpath";
-        public AlchemyHtmlTaxonomiesRequestBase(AlchemyClient client):base(client)
+        public AlchemyHtmlTaxonomiesRequestBase(AlchemyClient client)
+            : base(client)
         {
-
+            AddRequiredParameter(urlKey);
         }
         public bool Cquery { get { return GetBooleanParameter(cqueryKey); } set { AddOrUpdateParameter(cqueryKey, value); } }
         public bool Xpath { get { return GetBooleanParameter(xpathKey); } set { AddOrUpdateParameter(xpathKey, value); } }

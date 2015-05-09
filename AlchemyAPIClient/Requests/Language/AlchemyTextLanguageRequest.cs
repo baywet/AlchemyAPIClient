@@ -11,8 +11,7 @@ namespace AlchemyAPIClient.Requests
         protected const string textKey = "text";
         public AlchemyTextLanguageRequest(string text, AlchemyClient client):base(client)
         {
-            if (string.IsNullOrWhiteSpace(text))
-                throw new ArgumentNullException("text");
+            AddRequiredParameter(textKey);
             Text = text;
         }
         public string Text { get { return GetParameter(textKey); } set { AddOrUpdateParameter(textKey, value); } }

@@ -15,8 +15,7 @@ namespace AlchemyAPIClient.Requests
         }
         public AlchemyHtmlEntitiesRequest(string html, AlchemyClient client):base(client)
         {
-            if (string.IsNullOrWhiteSpace(html))
-                throw new ArgumentNullException("html");
+            AddRequiredParameter(htmlKey);
             Html = html;
         }
         public string Html { get { return GetParameter(htmlKey); } set { AddOrUpdateParameter(htmlKey, value); } }

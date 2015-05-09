@@ -20,13 +20,21 @@ namespace AlchemyAPIClient.Requests
         protected const string outputModeKey = "outputMode";
         protected const string jsonOutputMode = "json";
         protected abstract string RequestPath { get; }
+        private List<string> _requiredParameters;
+        protected IEnumerable<string> RequiredParameters { get { return _requiredParameters; } }
         protected AlchemyRequestBase(AlchemyClient _client)
         {
             if (_client == null)
                 throw new ArgumentNullException("_client");
             AdditionalParameters = new NameValueCollection();
+            _requiredParameters = new List<string>();
+            AddRequiredParameter(APIKeykey);
             client = _client;
             ThrowExceptionsOnErrors = true;
+        }
+        protected void AddRequiredParameter(string name)
+        {
+            _requiredParameters.Add(name);
         }
         public bool ThrowExceptionsOnErrors { get; set; }
         protected AlchemyClient client { get; set; }
@@ -44,6 +52,10 @@ namespace AlchemyAPIClient.Requests
                     AdditionalParameters.Add(APIKeykey, client.EndPointKey);
                 if (!AdditionalParameters.AllKeys.Contains(outputModeKey))
                     AdditionalParameters.Add(outputModeKey, jsonOutputMode);
+
+                var missingParameters = RequiredParameters.Where(x => !AdditionalParameters.AllKeys.Contains(x) || string.IsNullOrWhiteSpace(AdditionalParameters[x]));
+                if (missingParameters.Any())
+                    throw new ArgumentNullException(missingParameters.First());
 
                 var responseBytes = await wreq.UploadValuesTaskAsync(address, "POST", AdditionalParameters);
                 var textResponse = UTF8Encoding.UTF8.GetString(responseBytes);
@@ -69,7 +81,10 @@ namespace AlchemyAPIClient.Requests
         {
             if (AdditionalParameters.AllKeys.Contains(name))
                 if (string.IsNullOrEmpty(value))
-                    AdditionalParameters.Remove(name);
+                    if (RequiredParameters.Contains(name))
+                        throw new ArgumentNullException(name);
+                    else
+                        AdditionalParameters.Remove(name);
                 else
                     AdditionalParameters[name] = value;
             else

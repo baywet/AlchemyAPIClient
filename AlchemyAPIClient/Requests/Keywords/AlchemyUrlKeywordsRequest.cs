@@ -11,8 +11,7 @@ namespace AlchemyAPIClient.Requests
         public AlchemyUrlKeywordsRequest(Uri url, AlchemyClient client)
             : base(client)
         {
-            if (url == null)
-                throw new ArgumentNullException("url");
+            AddRequiredParameter(urlKey);
             Url = url;
         }
         protected override string RequestPath

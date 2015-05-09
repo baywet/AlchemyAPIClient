@@ -16,8 +16,7 @@ namespace AlchemyAPIClient.Requests
         public AlchemyTextTaxonomiesRequest(string text, AlchemyClient client)
             : base(client)
         {
-            if (string.IsNullOrWhiteSpace(text))
-                throw new ArgumentNullException("text");
+            AddRequiredParameter(textKey);
             Text = text;
         }
         public string Text { get { return GetParameter(textKey); } set { AddOrUpdateParameter(textKey, value); } }

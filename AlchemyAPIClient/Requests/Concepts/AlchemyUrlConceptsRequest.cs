@@ -9,10 +9,10 @@ namespace AlchemyAPIClient.Requests
     public class AlchemyUrlConceptsRequest : AlchemyHtmlConceptsRequestBase
     {
         protected const string baseUrlKey = "baseUrl";
-        public AlchemyUrlConceptsRequest(Uri url, AlchemyClient client):base(client)
+        public AlchemyUrlConceptsRequest(Uri url, AlchemyClient client)
+            : base(client)
         {
-            if (url == null)
-                throw new ArgumentNullException("url");
+            AddRequiredParameter(urlKey);
             Url = url;
         }
         protected override string RequestPath

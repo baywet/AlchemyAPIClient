@@ -15,8 +15,7 @@ namespace AlchemyAPIClient.Requests
         public AlchemyUrlEntitiesRequest(Uri url, AlchemyClient client)
             : base(client)
         {
-            if (url == null)
-                throw new ArgumentNullException("url");
+            AddRequiredParameter(urlKey);
             Url = url;
         }
     }

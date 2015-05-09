@@ -11,12 +11,12 @@ namespace AlchemyAPIClient.Requests
         protected const string textKey = "text";
         protected override string RequestPath
         {
-	        get { return "text/TextGetRankedConcepts"; }
+            get { return "text/TextGetRankedConcepts"; }
         }
-        public AlchemyTextConceptsRequest(string text, AlchemyClient client):base(client)
+        public AlchemyTextConceptsRequest(string text, AlchemyClient client)
+            : base(client)
         {
-            if (string.IsNullOrWhiteSpace(text))
-                throw new ArgumentNullException("text");
+            AddRequiredParameter(textKey);
             Text = text;
         }
         public string Text { get { return GetParameter(textKey); } set { AddOrUpdateParameter(textKey, value); } }

@@ -12,8 +12,7 @@ namespace AlchemyAPIClient.Requests
         public AlchemyHtmlLanguageRequest(string html, AlchemyClient client)
             : base(client)
         {
-            if (string.IsNullOrWhiteSpace(html))
-                throw new ArgumentNullException("html");
+            AddRequiredParameter(htmlKey);
             Html = html;
         }
         protected override string RequestPath
