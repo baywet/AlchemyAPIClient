@@ -66,6 +66,9 @@
     <Compile Include="AuthorsTest.cs" />
     <Compile Include="SentimentTest.cs" />
     <Compile Include="KeywordsTest.cs" />
+    <Compile Include="LanguageTest.cs" />
+    <Compile Include="TaxonomiesTest.cs" />
+    <Compile Include="RelationsTest.cs" />
     <Compile Include="UrlProvider.cs" />
   </ItemGroup>
   <ItemGroup>
