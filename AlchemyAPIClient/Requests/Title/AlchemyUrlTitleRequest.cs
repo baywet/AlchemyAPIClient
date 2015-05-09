@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AlchemyAPIClient.Requests.Title
+namespace AlchemyAPIClient.Requests
 {
     public class AlchemyUrlTitleRequest : AlchemyTitleRequestBase
     {
