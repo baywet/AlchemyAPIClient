@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace AlchemyAPIClient.Exceptions
 {
+    [Serializable]
     public class AlchemyAPIServiceCallException : Exception
     {
         internal static AlchemyAPIServiceCallException GetValidException(string subStatus)
