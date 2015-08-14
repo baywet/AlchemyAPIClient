@@ -15,7 +15,6 @@ namespace AlchemyAPIClient.UnitTest
             {
                 var request = new AlchemyTextRelationsRequest(text, AlchemyClientProvider.AlchemyClient.Value)
                     {
-                        ThrowExceptionsOnErrors = false,
                         Coreference = true,
                         Entities = true,
                         RequireEntities = true,
@@ -40,7 +39,6 @@ namespace AlchemyAPIClient.UnitTest
             {
                 var request = new AlchemyUrlRelationsRequest(url, AlchemyClientProvider.AlchemyClient.Value)
                 {
-                    ThrowExceptionsOnErrors = false,
                     Coreference = true,
                     Entities = true,
                     RequireEntities = true,
