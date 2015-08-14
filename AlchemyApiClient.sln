@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlchemyAPIClient", "AlchemyAPIClient.csproj", "{8C494164-B4AA-4DE3-87E8-F9D2A4EA4AF3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlchemyAPIClient", "AlchemyAPIClient\AlchemyAPIClient.csproj", "{8C494164-B4AA-4DE3-87E8-F9D2A4EA4AF3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlchemyAPIClient.UnitTest", "..\AlchemyAPIClient.UnitTest\AlchemyAPIClient.UnitTest.csproj", "{456C4745-6573-46DA-8D3A-99159823817F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlchemyAPIClient.UnitTest", "AlchemyAPIClient.UnitTest\AlchemyAPIClient.UnitTest.csproj", "{456C4745-6573-46DA-8D3A-99159823817F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
