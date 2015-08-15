@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AlchemyAPIClient.Responses
+﻿namespace AlchemyAPIClient.Responses
 {
     public abstract class AlchemyResponseBase<T> where T : class
     {
