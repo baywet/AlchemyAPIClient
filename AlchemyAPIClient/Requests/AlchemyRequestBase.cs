@@ -58,7 +58,7 @@ namespace AlchemyAPIClient.Requests
                     throw new ArgumentNullException(missingParameters.First());
 
                 var responseBytes = await wreq.UploadValuesTaskAsync(address, "POST", AdditionalParameters);
-                var textResponse = UTF8Encoding.UTF8.GetString(responseBytes);
+                var textResponse = Encoding.UTF8.GetString(responseBytes);
                 var typedResponse = JsonConvert.DeserializeObject<responseType>(textResponse);
                 if (ThrowExceptionsOnErrors && typedResponse.Status == AlchemyAPIResponseStatus.ERROR)
                     throw AlchemyAPIServiceCallException.GetValidException(typedResponse.StatusInfo);
