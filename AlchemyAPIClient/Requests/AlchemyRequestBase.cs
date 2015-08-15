@@ -112,7 +112,7 @@ namespace AlchemyAPIClient.Requests
         protected int GetIntParameter(string name)
         {
             var textValue = GetParameter(name);
-            if (string.IsNullOrWhiteSpace(name))
+            if (string.IsNullOrWhiteSpace(textValue))
                 return default(int);
             else
                 try
