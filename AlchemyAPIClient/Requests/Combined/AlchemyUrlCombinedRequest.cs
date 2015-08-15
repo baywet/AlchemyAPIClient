@@ -4,9 +4,9 @@ using System.Linq;
 
 namespace AlchemyAPIClient.Requests.Combined
 {
-    public sealed class AlchemyUrlCombinedRequest : AlchemyCombinedRequestBase
+    public sealed class AlchemyUrlCombinedRequest : AlchemyCombinedRequestBase<IAlchemyAPIUrlCombinableRequest>
     {
-        public AlchemyUrlCombinedRequest(AlchemyClient client, IEnumerable<ICombinableAlchemyAPIRequest> combinedCalls) : base(client, combinedCalls)
+        public AlchemyUrlCombinedRequest(AlchemyClient client, IEnumerable<IAlchemyAPIUrlCombinableRequest> combinedCalls) : base(client, combinedCalls)
         {
             if (combinedCalls.Any(x => !(x is IAlchemyAPIUrlRequest)))
                 throw new ArgumentException(nameof(combinedCalls));
@@ -15,7 +15,7 @@ namespace AlchemyAPIClient.Requests.Combined
         protected override void AdditionalParametersHandling()
         {
             base.AdditionalParametersHandling();
-            AddOrUpdateParameter(urlKey, CombinedCalls.Cast<IAlchemyAPIUrlRequest>().Select(x => x.Url).First());
+            AddOrUpdateParameter(urlKey, CombinedCalls.Select(x => x.Url).First());
         }
         protected override string RequestPath
         {

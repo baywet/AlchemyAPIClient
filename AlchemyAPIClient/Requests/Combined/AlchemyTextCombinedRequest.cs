@@ -4,10 +4,10 @@ using System.Linq;
 
 namespace AlchemyAPIClient.Requests.Combined
 {
-    public sealed class AlchemyTextCombinedRequest : AlchemyCombinedRequestBase
+    public sealed class AlchemyTextCombinedRequest : AlchemyCombinedRequestBase<IAlchemyAPITextCombinableRequest>
     {
         private const string textKey = "text";
-        public AlchemyTextCombinedRequest(AlchemyClient client, IEnumerable<ICombinableAlchemyAPIRequest> combinedCalls) : base(client, combinedCalls)
+        public AlchemyTextCombinedRequest(AlchemyClient client, IEnumerable<IAlchemyAPITextCombinableRequest> combinedCalls) : base(client, combinedCalls)
         {
             if (combinedCalls.Any(x => !(x is IAlchemyAPITextRequest)))
                 throw new ArgumentException(nameof(combinedCalls));
@@ -16,7 +16,7 @@ namespace AlchemyAPIClient.Requests.Combined
         protected override void AdditionalParametersHandling()
         {
             base.AdditionalParametersHandling();
-            AddOrUpdateParameter(textKey, CombinedCalls.Cast<IAlchemyAPITextRequest>().Select(x => x.Text).First());
+            AddOrUpdateParameter(textKey, CombinedCalls.Select(x => x.Text).First());
         }
         protected override string RequestPath
         {

@@ -1,6 +1,6 @@
 ﻿namespace AlchemyAPIClient.Requests
 {
-    public class AlchemyHtmlTitleRequest : AlchemyTitleRequestBase, IAlchemyAPIHtmlRequest
+    public class AlchemyHtmlTitleRequest : AlchemyTitleRequestBase, IAlchemyAPIHtmlRequest, ICombinableAlchemyAPIRequest
     {
         protected const string htmlKey = "html";
         public AlchemyHtmlTitleRequest(string html, AlchemyClient client)

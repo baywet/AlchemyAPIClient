@@ -2,7 +2,7 @@
 
 namespace AlchemyAPIClient.Requests
 {
-    public class AlchemyUrlEntitiesRequest : AlchemyHtmlEntitiesRequestBase, IAlchemyAPIUrlRequest
+    public class AlchemyUrlEntitiesRequest : AlchemyHtmlEntitiesRequestBase, IAlchemyAPIUrlRequest, ICombinableAlchemyAPIRequest, IAlchemyAPIUrlCombinableRequest
     {
         protected override string RequestPath
         {

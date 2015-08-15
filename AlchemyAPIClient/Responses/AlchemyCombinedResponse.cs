@@ -2,7 +2,7 @@
 
 namespace AlchemyAPIClient.Responses
 {
-    public class AlchemyCombinedResponse : AlchemyResponseBase<IEnumerable<AlchemyResponseBase<ICombinableAlchemyAPIRequest>>>
+    public class AlchemyCombinedResponse<T> : AlchemyResponseBase<IEnumerable<AlchemyResponseBase<T>>> where T : class, ICombinableAlchemyAPIRequest
     {
         public AlchemyAuthorResponse AuthorResponse { get; set; }
         public AlchemyKeywordsResponse KeywordsResponse { get; set; }

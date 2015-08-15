@@ -5,12 +5,12 @@ using System.Linq;
 
 namespace AlchemyAPIClient.Requests.Combined
 {
-    public abstract class AlchemyCombinedRequestBase : AlchemyRequestBase<IEnumerable<AlchemyResponseBase<ICombinableAlchemyAPIRequest>>, AlchemyCombinedResponse>
+    public abstract class AlchemyCombinedRequestBase<requestType> : AlchemyRequestBase<IEnumerable<AlchemyResponseBase<requestType>>, AlchemyCombinedResponse<requestType>> where requestType : class, ICombinableAlchemyAPIRequest
     {
         private const string showSourceTextKey = "showSourceText";
         private const string extractKey = "extract";
         protected const string urlKey = "url";
-        public AlchemyCombinedRequestBase(AlchemyClient client, IEnumerable<ICombinableAlchemyAPIRequest> combinedCalls) : base(client)
+        public AlchemyCombinedRequestBase(AlchemyClient client, IEnumerable<requestType> combinedCalls) : base(client)
         {
             if (combinedCalls == null && !combinedCalls.Any())
                 throw new ArgumentNullException(nameof(combinedCalls));
@@ -19,7 +19,7 @@ namespace AlchemyAPIClient.Requests.Combined
         }
         protected override T GetTypedResponseFromText<T, U>(string textResponse)
         {
-            var combined = base.GetTypedResponseFromText<AlchemyCombinedResponse, IEnumerable<AlchemyResponseBase<ICombinableAlchemyAPIRequest>>>(textResponse);
+            var combined = base.GetTypedResponseFromText<AlchemyCombinedResponse<requestType>, IEnumerable<AlchemyResponseBase<requestType>>>(textResponse);
             if (CombinedCalls.Any(x => x is AlchemyAuthorRequestBase))
                 combined.AuthorResponse = base.GetTypedResponseFromText<AlchemyAuthorResponse, string>(textResponse);
             if (CombinedCalls.Any(x => x is AlchemySentimentRequestBase))
@@ -42,7 +42,7 @@ namespace AlchemyAPIClient.Requests.Combined
         {
             AddOrUpdateParameter(extractKey, CombinedCalls.Select(x => x.CallName).Distinct().Aggregate((x, y) => x + "," + y));
         }
-        public IEnumerable<ICombinableAlchemyAPIRequest> CombinedCalls { get; private set; }
+        public IEnumerable<requestType> CombinedCalls { get; private set; }
         public bool ShowSourceText { get { return GetBooleanParameter(showSourceTextKey); } set { AddOrUpdateParameter(showSourceTextKey, value); } }
         public Uri Url { get { return GetUriParameter(urlKey); } set { AddOrUpdateParameter(urlKey, value); } }
     }

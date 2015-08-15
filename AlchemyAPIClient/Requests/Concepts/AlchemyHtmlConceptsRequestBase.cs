@@ -2,7 +2,7 @@
 
 namespace AlchemyAPIClient.Requests
 {
-    public abstract class AlchemyHtmlConceptsRequestBase : AlchemyConceptsRequestBase
+    public abstract class AlchemyHtmlConceptsRequestBase : AlchemyConceptsRequestBase, ICombinableAlchemyAPIRequest
     {
         protected const string sourceTextKey = "sourceText";
         protected const string cqueryKey = "cquery";

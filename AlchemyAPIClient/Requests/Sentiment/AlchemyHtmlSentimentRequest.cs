@@ -1,6 +1,6 @@
 ﻿namespace AlchemyAPIClient.Requests
 {
-    public class AlchemyHtmlSentimentRequest : AlchemyHtmlSentimentBase, IAlchemyAPIHtmlRequest
+    public class AlchemyHtmlSentimentRequest : AlchemyHtmlSentimentBase, IAlchemyAPIHtmlRequest, ICombinableAlchemyAPIRequest
     {
         protected const string htmlKey = "html";
         protected const string cqueryKey = "cquery";

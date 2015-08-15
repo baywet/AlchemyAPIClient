@@ -13,7 +13,7 @@ namespace AlchemyAPIClient.UnitTest
         {
             foreach (var url in UrlProvider.Uris.Value)
             {
-                var request = new AlchemyUrlCombinedRequest(AlchemyClientProvider.AlchemyClient.Value, new List<ICombinableAlchemyAPIRequest>(){
+                var request = new AlchemyUrlCombinedRequest(AlchemyClientProvider.AlchemyClient.Value, new List<IAlchemyAPIUrlCombinableRequest>(){
                     new AlchemyUrlAuthorRequest(url, AlchemyClientProvider.AlchemyClient.Value),
                     new AlchemyUrlTitleRequest(url, AlchemyClientProvider.AlchemyClient.Value),
                     new AlchemyUrlEntitiesRequest(url, AlchemyClientProvider.AlchemyClient.Value),
@@ -41,7 +41,7 @@ namespace AlchemyAPIClient.UnitTest
         {
             foreach (var text in DocumentsProvider.Documents.Value)
             {
-                var request = new AlchemyTextCombinedRequest(AlchemyClientProvider.AlchemyClient.Value, new List<ICombinableAlchemyAPIRequest>(){
+                var request = new AlchemyTextCombinedRequest(AlchemyClientProvider.AlchemyClient.Value, new List<IAlchemyAPITextCombinableRequest>(){
                     new AlchemyTextEntitiesRequest(text, AlchemyClientProvider.AlchemyClient.Value),
                     new AlchemyTextKeywordsRequest(text, AlchemyClientProvider.AlchemyClient.Value),
                     new AlchemyTextConceptsRequest(text, AlchemyClientProvider.AlchemyClient.Value),

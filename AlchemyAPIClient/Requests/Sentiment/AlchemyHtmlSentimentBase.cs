@@ -2,7 +2,7 @@
 
 namespace AlchemyAPIClient.Requests
 {
-    public abstract class AlchemyHtmlSentimentBase : AlchemySentimentRequestBase
+    public abstract class AlchemyHtmlSentimentBase : AlchemySentimentRequestBase, ICombinableAlchemyAPIRequest
     {
         protected const string sourceTextKey = "sourceText";
         protected const string xpathKey = "xpath";

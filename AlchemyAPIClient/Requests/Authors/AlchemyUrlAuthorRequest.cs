@@ -2,7 +2,7 @@
 
 namespace AlchemyAPIClient.Requests
 {
-    public class AlchemyUrlAuthorRequest : AlchemyAuthorRequestBase, IAlchemyAPIUrlRequest
+    public class AlchemyUrlAuthorRequest : AlchemyAuthorRequestBase, IAlchemyAPIUrlRequest, ICombinableAlchemyAPIRequest, IAlchemyAPIUrlCombinableRequest
     {
         public AlchemyUrlAuthorRequest(Uri url, AlchemyClient client)
             : base(client)

@@ -1,6 +1,6 @@
 ﻿namespace AlchemyAPIClient.Requests
 {
-    public class AlchemyTextTaxonomiesRequest : AlchemyTaxonomiesRequestBase, IAlchemyAPITextRequest
+    public class AlchemyTextTaxonomiesRequest : AlchemyTaxonomiesRequestBase, IAlchemyAPITextRequest, ICombinableAlchemyAPIRequest, IAlchemyAPITextCombinableRequest
     {
         protected const string textKey = "text";
         protected override string RequestPath
