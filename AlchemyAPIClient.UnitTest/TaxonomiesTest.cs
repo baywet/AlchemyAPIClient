@@ -15,9 +15,7 @@ namespace AlchemyAPIClient.UnitTest
                 var request = new AlchemyTextTaxonomiesRequest(text, AlchemyClientProvider.AlchemyClient.Value)
                     {
                     };
-                var requestTask = request.GetResponse();
-                var awaiter = requestTask.GetAwaiter();
-                var response = awaiter.GetResult();
+                var response = Utilities.getRequestResult(request);
                 Assert.AreEqual(response.Status, AlchemyAPIResponseStatus.OK);
                 Assert.IsNotNull(response.Taxonomy);
             }
@@ -30,9 +28,7 @@ namespace AlchemyAPIClient.UnitTest
                 var request = new AlchemyUrlTaxonomiesRequest(url, AlchemyClientProvider.AlchemyClient.Value)
                     {
                     };
-                var requestTask = request.GetResponse();
-                var awaiter = requestTask.GetAwaiter();
-                var response = awaiter.GetResult();
+                var response = Utilities.getRequestResult(request);
                 Assert.AreEqual(response.Status, AlchemyAPIResponseStatus.OK);
                 Assert.IsNotNull(response.Taxonomy);
             }    

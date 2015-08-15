@@ -17,9 +17,7 @@ namespace AlchemyAPIClient.UnitTest
                         ExtractLinks = true,
                         UseMetadata = true
                     };
-                var requestTask = request.GetResponse();
-                var awaiter = requestTask.GetAwaiter();
-                var response = awaiter.GetResult();
+                var response = Utilities.getRequestResult(request);
                 Assert.AreEqual(response.Status, AlchemyAPIResponseStatus.OK);
                 Assert.IsTrue(!string.IsNullOrWhiteSpace(response.Text));
             }

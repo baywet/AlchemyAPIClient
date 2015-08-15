@@ -20,9 +20,7 @@ namespace AlchemyAPIClient.UnitTest
                         Sentiment = true,
                         KeyWordExtractModeText = KeyWordExtractModeType.Normal,
                     };
-                var requestTask = request.GetResponse();
-                var awaiter = requestTask.GetAwaiter();
-                var response = awaiter.GetResult();
+                var response = Utilities.getRequestResult(request);
                 Assert.AreEqual(response.Status, AlchemyAPIResponseStatus.OK);
                 Assert.IsNotNull(response.Keywords); 
             }
@@ -40,9 +38,7 @@ namespace AlchemyAPIClient.UnitTest
                         Sentiment = true,
                         KeyWordExtractModeText = KeyWordExtractModeType.Normal,
                     };
-                var requestTask = request.GetResponse();
-                var awaiter = requestTask.GetAwaiter();
-                var response = awaiter.GetResult();
+                var response = Utilities.getRequestResult(request);
                 Assert.AreEqual(response.Status, AlchemyAPIResponseStatus.OK);
                 Assert.IsNotNull(response.Keywords);  
             }

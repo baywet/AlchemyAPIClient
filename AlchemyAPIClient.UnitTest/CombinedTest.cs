@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using AlchemyAPIClient.Requests.Combined;
 using System.Collections.Generic;
 using AlchemyAPIClient.Requests;
@@ -26,9 +25,7 @@ namespace AlchemyAPIClient.UnitTest
                 })
                 {
                 };
-                var requestTask = request.GetResponse();
-                var awaiter = requestTask.GetAwaiter();
-                var response = awaiter.GetResult();
+                var response = Utilities.getRequestResult(request);
                 Assert.IsNotNull(response.AuthorResponse);
                 Assert.IsNotNull(response.EntitiesResponse);
                 Assert.IsNotNull(response.KeywordsResponse);

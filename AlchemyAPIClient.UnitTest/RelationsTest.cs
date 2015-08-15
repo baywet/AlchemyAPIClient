@@ -24,9 +24,7 @@ namespace AlchemyAPIClient.UnitTest
                         Sentiment = true,
                         ShowSourceText = true
                     };
-                var requestTask = request.GetResponse();
-                var awaiter = requestTask.GetAwaiter();
-                var response = awaiter.GetResult();
+                var response = Utilities.getRequestResult(request);
                 Assert.AreEqual(response.Status, AlchemyAPIResponseStatus.OK);
                 Assert.IsNotNull(response.Relations);
             }
@@ -48,9 +46,7 @@ namespace AlchemyAPIClient.UnitTest
                     Sentiment = true,
                     ShowSourceText = true
                 };
-                var requestTask = request.GetResponse();
-                var awaiter = requestTask.GetAwaiter();
-                var response = awaiter.GetResult();
+                var response = Utilities.getRequestResult(request);
                 Assert.AreEqual(response.Status, AlchemyAPIResponseStatus.OK);
                 Assert.IsNotNull(response.Relations);
             }

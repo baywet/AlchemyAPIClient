@@ -24,9 +24,7 @@ namespace AlchemyAPIClient.UnitTest
                     StructuredEntities = true,
                     MaxRetrieve = 30
                 };
-                var requestTask = request.GetResponse();
-                var awaiter = requestTask.GetAwaiter();
-                var response = awaiter.GetResult();
+                var response = Utilities.getRequestResult(request);
                 Assert.AreEqual(response.Status, AlchemyAPIResponseStatus.OK);
                 Assert.IsNotNull(response.Entities);
             }
@@ -48,9 +46,7 @@ namespace AlchemyAPIClient.UnitTest
                     StructuredEntities = true,
                     MaxRetrieve = 30
                 };
-                var requestTask = request.GetResponse();
-                var awaiter = requestTask.GetAwaiter();
-                var response = awaiter.GetResult();
+                var response = Utilities.getRequestResult(request);
                 Assert.AreEqual(response.Status, AlchemyAPIResponseStatus.OK);
                 Assert.IsNotNull(response.Entities);
             }
