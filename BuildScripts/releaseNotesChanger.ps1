@@ -1,6 +1,6 @@
 param([String]$releaseNotes)
 $regexPatternNotes = '<releaseNotes></releaseNotes>';
-$regexPatternVersion = '<version></version>';
+$regexPatternVersion = '<version>.*</version>';
 $assemblyFiles = get-childitem -filter "*AlchemyAPIClient.nuspec" -Recurse;
 $targetNotesnInfo = '<releaseNotes>'+$releaseNotes+'</releaseNotes>';
 $targetVersionInfo = '<version>'+$Env:BUILD_BUILDNUMBER+'</version>';
