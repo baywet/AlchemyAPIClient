@@ -6,8 +6,8 @@ namespace AlchemyAPIClient.Requests
     public abstract class AlchemySentimentRequestBase : AlchemyRequestBase<AlchemySentiment, AlchemySentimentResponse>, ICombinableAlchemyAPIRequest
     {
         protected const string urlKey = "url";
-        protected const string showSourceTextKey = "showSourceText";
-        protected const string targetKey = "target";
+        private const string showSourceTextKey = "showSourceText";
+        private const string targetKey = "target";
         public AlchemySentimentRequestBase(AlchemyClient client):base(client)
         {
 

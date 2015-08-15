@@ -1,8 +1,8 @@
 ﻿namespace AlchemyAPIClient.Requests
 {
-    public class AlchemyTextSentimentRequest : AlchemySentimentRequestBase, IAlchemyAPITextRequest, ICombinableAlchemyAPIRequest, IAlchemyAPITextCombinableRequest
+    public sealed class AlchemyTextSentimentRequest : AlchemySentimentRequestBase, IAlchemyAPITextRequest, ICombinableAlchemyAPIRequest, IAlchemyAPITextCombinableRequest
     {
-        protected const string textKey = "text";
+        private const string textKey = "text";
         protected override string RequestPath
         {
             get { return string.IsNullOrEmpty(Target) ? "text/TextGetTextSentiment" : "text/TextGetTargetedSentiment"; }

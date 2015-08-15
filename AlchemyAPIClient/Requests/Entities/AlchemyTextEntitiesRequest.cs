@@ -1,8 +1,8 @@
 ﻿namespace AlchemyAPIClient.Requests
 {
-    public class AlchemyTextEntitiesRequest : AlchemyEntitiesRequestBase, IAlchemyAPITextRequest, ICombinableAlchemyAPIRequest, IAlchemyAPITextCombinableRequest
+    public sealed class AlchemyTextEntitiesRequest : AlchemyEntitiesRequestBase, IAlchemyAPITextRequest, ICombinableAlchemyAPIRequest, IAlchemyAPITextCombinableRequest
     {
-        protected const string textKey = "text";
+        private const string textKey = "text";
         protected override string RequestPath
         {
             get { return "text/TextGetRankedNamedEntities"; }

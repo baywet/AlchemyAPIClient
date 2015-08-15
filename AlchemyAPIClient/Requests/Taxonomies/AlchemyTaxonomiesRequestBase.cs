@@ -6,7 +6,7 @@ namespace AlchemyAPIClient.Requests
     public abstract class AlchemyTaxonomiesRequestBase : AlchemyRequestBase<AlchemyTaxonomy, AlchemyTaxonomiesResponse>, ICombinableAlchemyAPIRequest
     {
         protected const string urlKey = "url";
-        protected const string baseUrlKey = "baseUrl";
+        private const string baseUrlKey = "baseUrl";
         public AlchemyTaxonomiesRequestBase(AlchemyClient client):base(client)
         {
 

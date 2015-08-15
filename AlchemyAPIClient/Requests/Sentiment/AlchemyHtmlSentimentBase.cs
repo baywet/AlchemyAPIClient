@@ -4,8 +4,8 @@ namespace AlchemyAPIClient.Requests
 {
     public abstract class AlchemyHtmlSentimentBase : AlchemySentimentRequestBase, ICombinableAlchemyAPIRequest
     {
-        protected const string sourceTextKey = "sourceText";
-        protected const string xpathKey = "xpath";
+        private const string sourceTextKey = "sourceText";
+        private const string xpathKey = "xpath";
         public AlchemyHtmlSentimentBase(AlchemyClient client):base(client)
         {
 

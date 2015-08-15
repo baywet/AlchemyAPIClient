@@ -4,9 +4,9 @@ namespace AlchemyAPIClient.Requests
 {
     public abstract class AlchemyCleanTextRequestBase : AlchemyTextRequestBase
     {
-        protected const string useMetadataKey = "useMetadata";
-        protected const string extractLinksKey = "extractLinks";
-        protected const string sourceTextKey = "sourceText";
+        private const string useMetadataKey = "useMetadata";
+        private const string extractLinksKey = "extractLinks";
+        private const string sourceTextKey = "sourceText";
         public AlchemyCleanTextRequestBase(AlchemyClient client)
             : base(client)
         {

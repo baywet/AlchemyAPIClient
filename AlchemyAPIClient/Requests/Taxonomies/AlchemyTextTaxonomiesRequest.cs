@@ -1,8 +1,8 @@
 ﻿namespace AlchemyAPIClient.Requests
 {
-    public class AlchemyTextTaxonomiesRequest : AlchemyTaxonomiesRequestBase, IAlchemyAPITextRequest, ICombinableAlchemyAPIRequest, IAlchemyAPITextCombinableRequest
+    public sealed class AlchemyTextTaxonomiesRequest : AlchemyTaxonomiesRequestBase, IAlchemyAPITextRequest, ICombinableAlchemyAPIRequest, IAlchemyAPITextCombinableRequest
     {
-        protected const string textKey = "text";
+        private const string textKey = "text";
         protected override string RequestPath
         {
             get { return "text/TextGetRankedTaxonomy"; }

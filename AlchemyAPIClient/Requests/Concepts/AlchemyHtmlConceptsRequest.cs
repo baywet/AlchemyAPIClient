@@ -1,8 +1,8 @@
 ﻿namespace AlchemyAPIClient.Requests
 {
-    public class AlchemyHtmlConceptsRequest : AlchemyHtmlConceptsRequestBase, IAlchemyAPIHtmlRequest, ICombinableAlchemyAPIRequest
+    public sealed class AlchemyHtmlConceptsRequest : AlchemyHtmlConceptsRequestBase, IAlchemyAPIHtmlRequest, ICombinableAlchemyAPIRequest
     {
-        protected const string htmlKey = "html";
+        private const string htmlKey = "html";
         protected override string RequestPath
         {
             get { return "html/HTMLGetRankedConcepts"; }

@@ -1,8 +1,8 @@
 ﻿namespace AlchemyAPIClient.Requests
 {
-    public class AlchemyTextLanguageRequest : AlchemyLanguageRequestBase, IAlchemyAPITextRequest
+    public sealed class AlchemyTextLanguageRequest : AlchemyLanguageRequestBase, IAlchemyAPITextRequest
     {
-        protected const string textKey = "text";
+        private const string textKey = "text";
         public AlchemyTextLanguageRequest(string text, AlchemyClient client):base(client)
         {
             AddRequiredParameter(textKey);

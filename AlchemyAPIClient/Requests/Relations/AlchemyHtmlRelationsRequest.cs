@@ -1,8 +1,8 @@
 ﻿namespace AlchemyAPIClient.Requests
 {
-    public class AlchemyHtmlRelationsRequest : AlchemyHtmlRelationsRequestBase, IAlchemyAPIHtmlRequest, ICombinableAlchemyAPIRequest
+    public sealed class AlchemyHtmlRelationsRequest : AlchemyHtmlRelationsRequestBase, IAlchemyAPIHtmlRequest, ICombinableAlchemyAPIRequest
     {
-        protected const string htmlKey = "html";
+        private const string htmlKey = "html";
         public AlchemyHtmlRelationsRequest(string html, AlchemyClient client):base(client)
         {
             AddRequiredParameter(htmlKey);

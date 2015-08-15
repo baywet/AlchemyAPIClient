@@ -1,8 +1,8 @@
 ﻿namespace AlchemyAPIClient.Requests
 {
-    public class AlchemyHtmlEntitiesRequest : AlchemyHtmlEntitiesRequestBase, IAlchemyAPIHtmlRequest, ICombinableAlchemyAPIRequest
+    public sealed class AlchemyHtmlEntitiesRequest : AlchemyHtmlEntitiesRequestBase, IAlchemyAPIHtmlRequest, ICombinableAlchemyAPIRequest
     {
-        protected const string htmlKey = "html";
+        private const string htmlKey = "html";
         protected override string RequestPath
         {
             get { return "html/HTMLGetRankedNamedEntities"; }

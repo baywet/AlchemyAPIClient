@@ -16,18 +16,16 @@ namespace AlchemyAPIClient.Requests
         where dataType : class
         where responseType : AlchemyResponseBase<dataType>
     {
-        protected const string APIKeykey = "apikey";
-        protected const string outputModeKey = "outputMode";
-        protected const string jsonOutputMode = "json";
+        private const string APIKeykey = "apikey";
+        private const string outputModeKey = "outputMode";
+        private const string jsonOutputMode = "json";
         protected abstract string RequestPath { get; }
-        private List<string> _requiredParameters;
+        private List<string> _requiredParameters = new List<string>();
         protected IEnumerable<string> RequiredParameters { get { return _requiredParameters; } }
         protected AlchemyRequestBase(AlchemyClient _client)
         {
             if (_client == null)
-                throw new ArgumentNullException("_client");
-            AdditionalParameters = new NameValueCollection();
-            _requiredParameters = new List<string>();
+                throw new ArgumentNullException(nameof(_client));
             AddRequiredParameter(APIKeykey);
             client = _client;
             ThrowExceptionsOnErrors = true;
@@ -37,8 +35,8 @@ namespace AlchemyAPIClient.Requests
             _requiredParameters.Add(name);
         }
         public bool ThrowExceptionsOnErrors { get; set; }
-        protected AlchemyClient client { get; set; }
-        private NameValueCollection AdditionalParameters { get; set; }
+        private AlchemyClient client;
+        private NameValueCollection AdditionalParameters = new NameValueCollection();
         public virtual async Task<responseType> GetResponse()
         {
             using (var wreq = new WebClient())

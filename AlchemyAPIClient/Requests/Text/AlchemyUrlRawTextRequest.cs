@@ -2,7 +2,7 @@
 
 namespace AlchemyAPIClient.Requests
 {
-    public class AlchemyUrlRawTextRequest : AlchemyRawTextRequestBase, IAlchemyAPIUrlRequest
+    public sealed class AlchemyUrlRawTextRequest : AlchemyRawTextRequestBase, IAlchemyAPIUrlRequest
     {
         public AlchemyUrlRawTextRequest(Uri url, AlchemyClient client):base(client)
         {

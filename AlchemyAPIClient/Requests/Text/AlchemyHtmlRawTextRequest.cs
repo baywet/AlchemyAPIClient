@@ -1,8 +1,8 @@
 ﻿namespace AlchemyAPIClient.Requests
 {
-    public class AlchemyHtmlRawTextRequest : AlchemyRawTextRequestBase, IAlchemyAPIHtmlRequest
+    public sealed class AlchemyHtmlRawTextRequest : AlchemyRawTextRequestBase, IAlchemyAPIHtmlRequest
     {
-        protected const string htmlKey = "html";
+        private const string htmlKey = "html";
         public AlchemyHtmlRawTextRequest(string html, AlchemyClient client)
             : base(client)
         {

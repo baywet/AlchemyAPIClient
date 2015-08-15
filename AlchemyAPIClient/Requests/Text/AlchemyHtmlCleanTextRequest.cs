@@ -1,8 +1,8 @@
 ﻿namespace AlchemyAPIClient.Requests
 {
-    public class AlchemyHtmlCleanTextRequest : AlchemyCleanTextRequestBase, IAlchemyAPIHtmlRequest
+    public sealed class AlchemyHtmlCleanTextRequest : AlchemyCleanTextRequestBase, IAlchemyAPIHtmlRequest
     {
-        protected const string htmlKey = "html";
+        private const string htmlKey = "html";
         public AlchemyHtmlCleanTextRequest(string html, AlchemyClient client): base(client)
         {
             AddRequiredParameter(htmlKey);

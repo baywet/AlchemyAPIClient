@@ -1,8 +1,8 @@
 ﻿namespace AlchemyAPIClient.Requests
 {
-    public class AlchemyHtmlLanguageRequest : AlchemyHtmlLanguageRequestBase, IAlchemyAPIHtmlRequest
+    public sealed class AlchemyHtmlLanguageRequest : AlchemyHtmlLanguageRequestBase, IAlchemyAPIHtmlRequest
     {
-        protected const string htmlKey = "html";
+        private const string htmlKey = "html";
         public AlchemyHtmlLanguageRequest(string html, AlchemyClient client)
             : base(client)
         {

@@ -6,20 +6,20 @@ namespace AlchemyAPIClient.Requests
     public abstract class AlchemyRelationsRequestBase : AlchemyRequestBase<AlchemyRelation, AlchemyRelationsResponse>, ICombinableAlchemyAPIRequest
     {
         protected const string urlKey = "url";
-        protected const string maxRetrieveKey = "maxRetrieve";
-        protected const string sentimentKey = "sentiment";
-        protected const string entitiesKey = "entities";
-        protected const string keywordsKey = "keywords";
-        protected const string requireEntitiesKey = "requireEntities";
-        protected const string sentimentExcludeEntitiesKey = "sentimentExcludeEntities";
-        protected const string disambiguateKey = "disambiguate";
-        protected const string linkedDataKey = "linkedData";
-        protected const string coreferenceKey = "coreference";
-        protected const string showSourceTextKey = "showSourceText";
-        protected const string sourceTextKey = "sourceText";
-        protected const string cqueryKey = "cquery";
-        protected const string xpathKey = "xpath";
-        protected const string baseUrlKey = "baseUrl";
+        private const string maxRetrieveKey = "maxRetrieve";
+        private const string sentimentKey = "sentiment";
+        private const string entitiesKey = "entities";
+        private const string keywordsKey = "keywords";
+        private const string requireEntitiesKey = "requireEntities";
+        private const string sentimentExcludeEntitiesKey = "sentimentExcludeEntities";
+        private const string disambiguateKey = "disambiguate";
+        private const string linkedDataKey = "linkedData";
+        private const string coreferenceKey = "coreference";
+        private const string showSourceTextKey = "showSourceText";
+        private const string sourceTextKey = "sourceText";
+        private const string cqueryKey = "cquery";
+        private const string xpathKey = "xpath";
+        private const string baseUrlKey = "baseUrl";
         public AlchemyRelationsRequestBase(AlchemyClient client):base(client)
         {
 

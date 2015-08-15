@@ -1,9 +1,9 @@
 ﻿namespace AlchemyAPIClient.Requests
 {
-    public class AlchemyHtmlSentimentRequest : AlchemyHtmlSentimentBase, IAlchemyAPIHtmlRequest, ICombinableAlchemyAPIRequest
+    public sealed class AlchemyHtmlSentimentRequest : AlchemyHtmlSentimentBase, IAlchemyAPIHtmlRequest, ICombinableAlchemyAPIRequest
     {
-        protected const string htmlKey = "html";
-        protected const string cqueryKey = "cquery";
+        private const string htmlKey = "html";
+        private const string cqueryKey = "cquery";
         protected override string RequestPath
         {
             get { return string.IsNullOrEmpty(Target) ? "html/HTMLGetTextSentiment" : "html/HTMLGetTargetedSentiment"; }

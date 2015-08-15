@@ -4,9 +4,9 @@ namespace AlchemyAPIClient.Requests
 {
     public abstract class AlchemyHtmlTaxonomiesRequestBase : AlchemyTaxonomiesRequestBase, ICombinableAlchemyAPIRequest
     {
-        protected const string sourceTextKey = "sourceText";
-        protected const string cqueryKey = "cquery";
-        protected const string xpathKey = "xpath";
+        private const string sourceTextKey = "sourceText";
+        private const string cqueryKey = "cquery";
+        private const string xpathKey = "xpath";
         public AlchemyHtmlTaxonomiesRequestBase(AlchemyClient client)
             : base(client)
         {

@@ -1,8 +1,8 @@
 ﻿namespace AlchemyAPIClient.Requests
 {
-    public class AlchemyHtmlTaxonomiesRequest : AlchemyHtmlTaxonomiesRequestBase, IAlchemyAPIHtmlRequest, ICombinableAlchemyAPIRequest
+    public sealed class AlchemyHtmlTaxonomiesRequest : AlchemyHtmlTaxonomiesRequestBase, IAlchemyAPIHtmlRequest, ICombinableAlchemyAPIRequest
     {
-        protected const string htmlKey = "html";
+        private const string htmlKey = "html";
         protected override string RequestPath
         {
             get { return "html/HTMLGetRankedTaxonomy"; }

@@ -5,10 +5,10 @@ namespace AlchemyAPIClient.Requests
 {
     public abstract class AlchemyConceptsRequestBase : AlchemyRequestBase<AlchemyConcept, AlchemyConceptsResponse>, ICombinableAlchemyAPIRequest
     {
-        protected const string maxRetrieveKey = "maxRetrieve";
-        protected const string showSourceTextKey = "showSourceText";
-        protected const string knowledgeGraphKey = "knowledgeGraph";
-        protected const string linkedDataKey = "linkedData";
+        private const string maxRetrieveKey = "maxRetrieve";
+        private const string showSourceTextKey = "showSourceText";
+        private const string knowledgeGraphKey = "knowledgeGraph";
+        private const string linkedDataKey = "linkedData";
         protected const string urlKey = "url";
         protected AlchemyConceptsRequestBase(AlchemyClient client):base(client)
         {

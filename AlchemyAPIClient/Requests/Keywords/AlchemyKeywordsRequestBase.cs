@@ -6,12 +6,12 @@ namespace AlchemyAPIClient.Requests
     public abstract class AlchemyKeywordsRequestBase : AlchemyRequestBase<AlchemyKeyword, AlchemyKeywordsResponse>, ICombinableAlchemyAPIRequest
     {
         protected const string urlKey = "url";
-        protected const string maxRetrieveKey = "maxRetrieve";
-        protected const string sentimentKey = "sentiment";
-        protected const string showSourceTextKey = "showSourceText";
-        protected const string knowledgeGraphKey = "knowledgeGraph";
-        protected const string baseUrlKey = "baseUrl";
-        protected const string keywordExtractModeKey = "keywordExtractMode";
+        private const string maxRetrieveKey = "maxRetrieve";
+        private const string sentimentKey = "sentiment";
+        private const string showSourceTextKey = "showSourceText";
+        private const string knowledgeGraphKey = "knowledgeGraph";
+        private const string baseUrlKey = "baseUrl";
+        private const string keywordExtractModeKey = "keywordExtractMode";
         protected AlchemyKeywordsRequestBase(AlchemyClient client):base(client)
         {
 

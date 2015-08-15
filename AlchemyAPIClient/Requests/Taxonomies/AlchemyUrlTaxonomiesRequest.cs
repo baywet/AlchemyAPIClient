@@ -2,13 +2,13 @@
 
 namespace AlchemyAPIClient.Requests
 {
-    public class AlchemyUrlTaxonomiesRequest : AlchemyHtmlTaxonomiesRequestBase, IAlchemyAPIUrlRequest, ICombinableAlchemyAPIRequest, IAlchemyAPIUrlCombinableRequest
+    public sealed class AlchemyUrlTaxonomiesRequest : AlchemyHtmlTaxonomiesRequestBase, IAlchemyAPIUrlRequest, ICombinableAlchemyAPIRequest, IAlchemyAPIUrlCombinableRequest
     {
         public AlchemyUrlTaxonomiesRequest(Uri url, AlchemyClient client)
             : base(client)
         {
             if (url == null)
-                throw new ArgumentNullException("url");
+                throw new ArgumentNullException(nameof(url));
             Url = url;
         }
         protected override string RequestPath

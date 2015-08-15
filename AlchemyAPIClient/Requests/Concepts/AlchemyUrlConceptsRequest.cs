@@ -2,9 +2,9 @@
 
 namespace AlchemyAPIClient.Requests
 {
-    public class AlchemyUrlConceptsRequest : AlchemyHtmlConceptsRequestBase, IAlchemyAPIUrlRequest, ICombinableAlchemyAPIRequest, IAlchemyAPIUrlCombinableRequest
+    public sealed class AlchemyUrlConceptsRequest : AlchemyHtmlConceptsRequestBase, IAlchemyAPIUrlRequest, ICombinableAlchemyAPIRequest, IAlchemyAPIUrlCombinableRequest
     {
-        protected const string baseUrlKey = "baseUrl";
+        private const string baseUrlKey = "baseUrl";
         public AlchemyUrlConceptsRequest(Uri url, AlchemyClient client)
             : base(client)
         {

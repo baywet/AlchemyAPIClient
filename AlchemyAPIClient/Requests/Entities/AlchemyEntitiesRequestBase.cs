@@ -5,16 +5,16 @@ namespace AlchemyAPIClient.Requests
 {
     public abstract class AlchemyEntitiesRequestBase : AlchemyRequestBase<AlchemyEntity, AlchemyEntitiesResponse>, ICombinableAlchemyAPIRequest
     {
-        protected const string disambiguateKey = "disambiguate";
-        protected const string linkedDataKey = "linkedData";
-        protected const string coreferenceKey = "coreference";
-        protected const string quotationsKey = "quotations";
-        protected const string sentimentKey = "sentiment";
-        protected const string showSourceTextKey = "showSourceText";
-        protected const string knowledgeGraphKey = "knowledgeGraph";
-        protected const string structuredEntitiesKey = "structuredEntities";
-        protected const string maxRetrieveKey = "maxRetrieve";
-        protected const string baseUrlKey = "baseUrl";
+        private const string disambiguateKey = "disambiguate";
+        private const string linkedDataKey = "linkedData";
+        private const string coreferenceKey = "coreference";
+        private const string quotationsKey = "quotations";
+        private const string sentimentKey = "sentiment";
+        private const string showSourceTextKey = "showSourceText";
+        private const string knowledgeGraphKey = "knowledgeGraph";
+        private const string structuredEntitiesKey = "structuredEntities";
+        private const string maxRetrieveKey = "maxRetrieve";
+        private const string baseUrlKey = "baseUrl";
         protected const string urlKey = "url";
         protected AlchemyEntitiesRequestBase(AlchemyClient client)
             : base(client)
