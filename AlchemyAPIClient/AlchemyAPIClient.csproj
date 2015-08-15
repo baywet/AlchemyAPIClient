@@ -45,12 +45,6 @@
       <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AlchemyAction.cs" />
@@ -150,6 +144,7 @@
     <Compile Include="Responses\AlchemyTitleResponse.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="AlchemyAPIClient.nuspec" />
     <None Include="key.snk" />
     <None Include="packages.config" />
     <None Include="_CreateNewNuGetPackage\Config.ps1" />
