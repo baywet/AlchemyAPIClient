@@ -82,6 +82,8 @@
     <Compile Include="Requests\Authors\AlchemyHtmlAuthorsRequest.cs" />
     <Compile Include="Requests\Authors\AlchemyUrlAuthorRequest.cs" />
     <Compile Include="Requests\Authors\AlchemyUrlAuthorsRequest.cs" />
+    <Compile Include="Requests\Combined\AlchemyCombinedRequestBase.cs" />
+    <Compile Include="Requests\Combined\AlchemyUrlCombinedRequest.cs" />
     <Compile Include="Requests\Concepts\AlchemyConceptsRequestBase.cs" />
     <Compile Include="Requests\Entities\AlchemyEntitiesRequestBase.cs" />
     <Compile Include="Requests\IAlchemyAPIHtmlRequest.cs" />
@@ -134,7 +136,7 @@
     <Compile Include="Requests\Title\AlchemyHtmlTitleRequest.cs" />
     <Compile Include="Requests\Title\AlchemyTitleRequestBase.cs" />
     <Compile Include="Requests\Title\AlchemyUrlTitleRequest.cs" />
-    <Compile Include="Responses\AlchemyAPICombinedResponse.cs" />
+    <Compile Include="Responses\AlchemyCombinedResponse.cs" />
     <Compile Include="Responses\AlchemyAuthorResponse.cs" />
     <Compile Include="Responses\AlchemyAuthorsResponse.cs" />
     <Compile Include="Responses\AlchemyConceptsResponse.cs" />

@@ -43,28 +43,44 @@ namespace AlchemyAPIClient.Requests
         {
             using (var wreq = new WebClient())
             {
-                wreq.CachePolicy = new RequestCachePolicy(RequestCacheLevel.NoCacheNoStore);
+                addDefaultParameters(wreq);
+                AdditionalParametersHandling();
+                checkRequiredParameters();
 
-                Uri address = new Uri(client.EndPointUrl + RequestPath);
-
-                wreq.Headers.Add("Content-Type", "application/x-www-form-urlencoded");
-                if (!AdditionalParameters.AllKeys.Contains(APIKeykey))
-                    AdditionalParameters.Add(APIKeykey, client.EndPointKey);
-                if (!AdditionalParameters.AllKeys.Contains(outputModeKey))
-                    AdditionalParameters.Add(outputModeKey, jsonOutputMode);
-
-                var missingParameters = RequiredParameters.Where(x => !AdditionalParameters.AllKeys.Contains(x) || string.IsNullOrWhiteSpace(AdditionalParameters[x]));
-                if (missingParameters.Any())
-                    throw new ArgumentNullException(missingParameters.First());
-
+                var address = new Uri(client.EndPointUrl + RequestPath);
                 var responseBytes = await wreq.UploadValuesTaskAsync(address, "POST", AdditionalParameters);
                 var textResponse = Encoding.UTF8.GetString(responseBytes);
-                var typedResponse = JsonConvert.DeserializeObject<responseType>(textResponse);
-                if (ThrowExceptionsOnErrors && typedResponse.Status == AlchemyAPIResponseStatus.ERROR)
-                    throw AlchemyAPIServiceCallException.GetValidException(typedResponse.StatusInfo);
-                return typedResponse;
+                return GetTypedResponseFromText<responseType, dataType>(textResponse) as responseType;
             }
         }
+        protected virtual void AdditionalParametersHandling()
+        {
+
+        }
+        private void checkRequiredParameters()
+        {
+            var missingParameters = RequiredParameters.Where(x => !AdditionalParameters.AllKeys.Contains(x) || string.IsNullOrWhiteSpace(AdditionalParameters[x]));
+            if (missingParameters.Any())
+                throw new ArgumentNullException(missingParameters.First());
+        }
+        private void addDefaultParameters(WebClient wreq)
+        {
+            wreq.CachePolicy = new RequestCachePolicy(RequestCacheLevel.NoCacheNoStore);
+
+            wreq.Headers.Add("Content-Type", "application/x-www-form-urlencoded");
+            if (!AdditionalParameters.AllKeys.Contains(APIKeykey))
+                AdditionalParameters.Add(APIKeykey, client.EndPointKey);
+            if (!AdditionalParameters.AllKeys.Contains(outputModeKey))
+                AdditionalParameters.Add(outputModeKey, jsonOutputMode);
+        }
+        protected virtual T GetTypedResponseFromText<T, U>(string textResponse) where T : AlchemyResponseBase<U> where U : class
+        {
+            var typedResponse = JsonConvert.DeserializeObject<T>(textResponse);
+            if (ThrowExceptionsOnErrors && typedResponse.Status == AlchemyAPIResponseStatus.ERROR)
+                throw AlchemyAPIServiceCallException.GetValidException(typedResponse.StatusInfo);
+            return typedResponse;
+        }
+
         protected void AddOrUpdateParameter(string name, int value)
         {
             AddOrUpdateParameter(name, value.ToString());
