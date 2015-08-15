@@ -3,9 +3,9 @@
   <metadata>
     <id>AlchemyAPIClient</id>
     <title>AlchemyAPIClient</title>
-    <version>$version$</version>
-    <authors>$author$</authors>
-    <owners>$author$</owners>
+    <version></version>
+    <authors>Vincent BIRET</authors>
+    <owners>Vincent BIRET</owners>
     <licenseUrl>https://github.com/baywet/AlchemyAPIClient/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/baywet/AlchemyAPIClient</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
