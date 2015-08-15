@@ -2,7 +2,7 @@
 
 namespace AlchemyAPIClient.Requests
 {
-    public class AlchemyUrlSentimentRequest : AlchemyHtmlSentimentBase
+    public class AlchemyUrlSentimentRequest : AlchemyHtmlSentimentBase, IAlchemyAPIUrlRequest
     {
         protected override string RequestPath
         {

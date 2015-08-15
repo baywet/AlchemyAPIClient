@@ -2,7 +2,7 @@
 
 namespace AlchemyAPIClient.Requests
 {
-    public class AlchemyUrlKeywordsRequest : AlchemyHtmlKeywordsRequestBase
+    public class AlchemyUrlKeywordsRequest : AlchemyHtmlKeywordsRequestBase, IAlchemyAPIUrlRequest
     {
         public AlchemyUrlKeywordsRequest(Uri url, AlchemyClient client)
             : base(client)

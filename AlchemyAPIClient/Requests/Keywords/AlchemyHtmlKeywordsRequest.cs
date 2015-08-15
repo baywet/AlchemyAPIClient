@@ -1,6 +1,6 @@
 ﻿namespace AlchemyAPIClient.Requests
 {
-    public class AlchemyHtmlKeywordsRequest : AlchemyHtmlKeywordsRequestBase
+    public class AlchemyHtmlKeywordsRequest : AlchemyHtmlKeywordsRequestBase, IAlchemyAPIHtmlRequest
     {
         protected const string htmlKey = "html";
         protected override string RequestPath

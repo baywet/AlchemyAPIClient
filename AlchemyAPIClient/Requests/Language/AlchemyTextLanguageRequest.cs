@@ -1,6 +1,6 @@
 ﻿namespace AlchemyAPIClient.Requests
 {
-    public class AlchemyTextLanguageRequest : AlchemyLanguageRequestBase
+    public class AlchemyTextLanguageRequest : AlchemyLanguageRequestBase, IAlchemyAPITextRequest
     {
         protected const string textKey = "text";
         public AlchemyTextLanguageRequest(string text, AlchemyClient client):base(client)

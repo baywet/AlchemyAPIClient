@@ -2,7 +2,7 @@
 
 namespace AlchemyAPIClient.Requests
 {
-    public class AlchemyUrlConceptsRequest : AlchemyHtmlConceptsRequestBase
+    public class AlchemyUrlConceptsRequest : AlchemyHtmlConceptsRequestBase, IAlchemyAPIUrlRequest
     {
         protected const string baseUrlKey = "baseUrl";
         public AlchemyUrlConceptsRequest(Uri url, AlchemyClient client)

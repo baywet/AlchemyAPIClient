@@ -1,6 +1,6 @@
 ﻿namespace AlchemyAPIClient.Requests
 {
-    public class AlchemyTextKeywordsRequest : AlchemyKeywordsRequestBase
+    public class AlchemyTextKeywordsRequest : AlchemyKeywordsRequestBase, IAlchemyAPITextRequest
     {
         protected const string textKey = "text";
         public AlchemyTextKeywordsRequest(string text, AlchemyClient client)

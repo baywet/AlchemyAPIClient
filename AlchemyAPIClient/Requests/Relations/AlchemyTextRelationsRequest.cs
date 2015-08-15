@@ -1,6 +1,6 @@
 ﻿namespace AlchemyAPIClient.Requests
 {
-    public class AlchemyTextRelationsRequest : AlchemyRelationsRequestBase
+    public class AlchemyTextRelationsRequest : AlchemyRelationsRequestBase, IAlchemyAPITextRequest
     {
         protected const string textKey = "text";
         public AlchemyTextRelationsRequest(string text, AlchemyClient client):base(client)

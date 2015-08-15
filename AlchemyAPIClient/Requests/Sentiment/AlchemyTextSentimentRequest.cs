@@ -1,6 +1,6 @@
 ﻿namespace AlchemyAPIClient.Requests
 {
-    public class AlchemyTextSentimentRequest : AlchemySentimentRequestBase
+    public class AlchemyTextSentimentRequest : AlchemySentimentRequestBase, IAlchemyAPITextRequest
     {
         protected const string textKey = "text";
         protected override string RequestPath

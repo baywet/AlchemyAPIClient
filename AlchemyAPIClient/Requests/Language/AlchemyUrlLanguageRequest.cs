@@ -2,7 +2,7 @@
 
 namespace AlchemyAPIClient.Requests
 {
-    public class AlchemyUrlLanguageRequest : AlchemyHtmlLanguageRequestBase
+    public class AlchemyUrlLanguageRequest : AlchemyHtmlLanguageRequestBase, IAlchemyAPIUrlRequest
     {
         public AlchemyUrlLanguageRequest(Uri url, AlchemyClient client):base(client)
         {
