@@ -83,6 +83,8 @@
     <Compile Include="Requests\Authors\AlchemyUrlAuthorRequest.cs" />
     <Compile Include="Requests\Authors\AlchemyUrlAuthorsRequest.cs" />
     <Compile Include="Requests\Combined\AlchemyCombinedRequestBase.cs" />
+    <Compile Include="Requests\Combined\AlchemyHtmlCombinedRequest.cs" />
+    <Compile Include="Requests\Combined\AlchemyTextCombinedRequest.cs" />
     <Compile Include="Requests\Combined\AlchemyUrlCombinedRequest.cs" />
     <Compile Include="Requests\Concepts\AlchemyConceptsRequestBase.cs" />
     <Compile Include="Requests\Entities\AlchemyEntitiesRequestBase.cs" />

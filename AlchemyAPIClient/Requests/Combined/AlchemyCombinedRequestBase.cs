@@ -9,6 +9,7 @@ namespace AlchemyAPIClient.Requests.Combined
     {
         private const string showSourceTextKey = "showSourceText";
         private const string extractKey = "extract";
+        protected const string urlKey = "url";
         public AlchemyCombinedRequestBase(AlchemyClient client, IEnumerable<ICombinableAlchemyAPIRequest> combinedCalls) : base(client)
         {
             if (combinedCalls == null && !combinedCalls.Any())
@@ -43,5 +44,6 @@ namespace AlchemyAPIClient.Requests.Combined
         }
         public IEnumerable<ICombinableAlchemyAPIRequest> CombinedCalls { get; private set; }
         public bool ShowSourceText { get { return GetBooleanParameter(showSourceTextKey); } set { AddOrUpdateParameter(showSourceTextKey, value); } }
+        public Uri Url { get { return GetUriParameter(urlKey); } set { AddOrUpdateParameter(urlKey, value); } }
     }
 }

@@ -6,7 +6,6 @@ namespace AlchemyAPIClient.Requests.Combined
 {
     public sealed class AlchemyUrlCombinedRequest : AlchemyCombinedRequestBase
     {
-        private const string urlKey = "url";
         public AlchemyUrlCombinedRequest(AlchemyClient client, IEnumerable<ICombinableAlchemyAPIRequest> combinedCalls) : base(client, combinedCalls)
         {
             if (combinedCalls.Any(x => !(x is IAlchemyAPIUrlRequest)))
