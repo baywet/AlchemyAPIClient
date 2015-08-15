@@ -3,7 +3,7 @@ using System;
 
 namespace AlchemyAPIClient.Requests
 {
-    public abstract class AlchemyConceptsRequestBase : AlchemyRequestBase<AlchemyConcept, AlchemyConceptsResponse>
+    public abstract class AlchemyConceptsRequestBase : AlchemyRequestBase<AlchemyConcept, AlchemyConceptsResponse>, ICombinableAlchemyAPIRequest
     {
         protected const string maxRetrieveKey = "maxRetrieve";
         protected const string showSourceTextKey = "showSourceText";
@@ -19,5 +19,12 @@ namespace AlchemyAPIClient.Requests
         public bool LinkedData { get { return GetBooleanParameter(linkedDataKey); } set { AddOrUpdateParameter(linkedDataKey, value); } }
         public int MaxRetrieve { get { return GetIntParameter(maxRetrieveKey); } set { AddOrUpdateParameter(maxRetrieveKey, value); } }
         public bool ShowSourceText { get { return GetBooleanParameter(showSourceTextKey); } set { AddOrUpdateParameter(showSourceTextKey, value); } }
+        public string CallName
+        {
+            get
+            {
+                return "concept";
+            }
+        }
     }
 }

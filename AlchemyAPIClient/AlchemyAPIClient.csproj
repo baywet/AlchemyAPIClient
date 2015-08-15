@@ -75,6 +75,7 @@
     <Compile Include="AlchemySentiment.cs" />
     <Compile Include="Exceptions\AlchemyAPIInvalidKeyException.cs" />
     <Compile Include="Exceptions\AlchemyAPIUnsupportedLanguageException.cs" />
+    <Compile Include="ICombinableAlchemyAPIRequest.cs" />
     <Compile Include="Requests\Authors\AlchemyAuthorRequestBase.cs" />
     <Compile Include="Requests\Authors\AlchemyAuthorsRequestBase.cs" />
     <Compile Include="Requests\Authors\AlchemyHtmlAuthorRequest.cs" />

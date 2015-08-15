@@ -3,7 +3,7 @@ using System;
 
 namespace AlchemyAPIClient.Requests
 {
-    public abstract class AlchemyEntitiesRequestBase : AlchemyRequestBase<AlchemyEntity, AlchemyEntitiesResponse>
+    public abstract class AlchemyEntitiesRequestBase : AlchemyRequestBase<AlchemyEntity, AlchemyEntitiesResponse>, ICombinableAlchemyAPIRequest
     {
         protected const string disambiguateKey = "disambiguate";
         protected const string linkedDataKey = "linkedData";
@@ -32,5 +32,12 @@ namespace AlchemyAPIClient.Requests
         public bool ShowSourceText { get { return GetBooleanParameter(showSourceTextKey); } set { AddOrUpdateParameter(showSourceTextKey, value); } }
         public bool KnowledgeGraph { get { return GetBooleanParameter(knowledgeGraphKey); } set { AddOrUpdateParameter(knowledgeGraphKey, value); } }
         public bool StructuredEntities { get { return GetBooleanParameter(structuredEntitiesKey); } set { AddOrUpdateParameter(structuredEntitiesKey, value); } }
+        public string CallName
+        {
+            get
+            {
+                return "entity";
+            }
+        }
     }
 }

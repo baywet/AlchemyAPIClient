@@ -3,7 +3,7 @@ using System;
 
 namespace AlchemyAPIClient.Requests
 {
-    public abstract class AlchemyTaxonomiesRequestBase : AlchemyRequestBase<AlchemyTaxonomy, AlchemyTaxonomiesResponse>
+    public abstract class AlchemyTaxonomiesRequestBase : AlchemyRequestBase<AlchemyTaxonomy, AlchemyTaxonomiesResponse>, ICombinableAlchemyAPIRequest
     {
         protected const string urlKey = "url";
         protected const string baseUrlKey = "baseUrl";
@@ -13,5 +13,12 @@ namespace AlchemyAPIClient.Requests
         }
         public Uri Url { get { return GetUriParameter(urlKey); } set { AddOrUpdateParameter(urlKey, value); } }
         public Uri BaseUrl { get { return GetUriParameter(baseUrlKey); } set { AddOrUpdateParameter(baseUrlKey, value); } }
+        public string CallName
+        {
+            get
+            {
+                return "taxonomy";
+            }
+        }
     }
 }

@@ -3,7 +3,7 @@ using System;
 
 namespace AlchemyAPIClient.Requests
 {
-    public abstract class AlchemyRelationsRequestBase : AlchemyRequestBase<AlchemyRelation, AlchemyRelationsResponse>
+    public abstract class AlchemyRelationsRequestBase : AlchemyRequestBase<AlchemyRelation, AlchemyRelationsResponse>, ICombinableAlchemyAPIRequest
     {
         protected const string urlKey = "url";
         protected const string maxRetrieveKey = "maxRetrieve";
@@ -53,6 +53,12 @@ namespace AlchemyAPIClient.Requests
                 AddOrUpdateParameter(sourceTextKey, Enum.GetName(typeof(SourceTextType), value));
             }
         }
-
+        public string CallName
+        {
+            get
+            {
+                return "relation";
+            }
+        }
     }
 }

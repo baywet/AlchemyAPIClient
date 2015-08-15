@@ -3,7 +3,7 @@ using System;
 
 namespace AlchemyAPIClient.Requests
 {
-    public abstract class AlchemyKeywordsRequestBase : AlchemyRequestBase<AlchemyKeyword, AlchemyKeywordsResponse>
+    public abstract class AlchemyKeywordsRequestBase : AlchemyRequestBase<AlchemyKeyword, AlchemyKeywordsResponse>, ICombinableAlchemyAPIRequest
     {
         protected const string urlKey = "url";
         protected const string maxRetrieveKey = "maxRetrieve";
@@ -35,6 +35,13 @@ namespace AlchemyAPIClient.Requests
             set
             {
                 AddOrUpdateParameter(keywordExtractModeKey, Enum.GetName(typeof(KeyWordExtractModeType), value));
+            }
+        }
+        public string CallName
+        {
+            get
+            {
+                return "keyword";
             }
         }
     }
