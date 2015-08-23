@@ -63,6 +63,7 @@
     <Compile Include="EntitiesTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ConceptsTest.cs" />
+    <Compile Include="PublicationDateTests.cs" />
     <Compile Include="TextTest.cs" />
     <Compile Include="TitleTest.cs" />
     <Compile Include="AuthorsTest.cs" />
