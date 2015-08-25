@@ -62,6 +62,7 @@
     <Compile Include="AlchemyTaxonomy.cs" />
     <Compile Include="AlchemyVerb.cs" />
     <Compile Include="Exceptions\AlchemyAPICannotLocateAuthorException.cs" />
+    <Compile Include="Exceptions\AlchemyAPICannotRetrieveDNSTimeoutException.cs" />
     <Compile Include="Exceptions\AlchemyAPICannotRetrieveException.cs" />
     <Compile Include="Exceptions\AlchemyAPIContentExceedsSizeLimitException.cs" />
     <Compile Include="Exceptions\AlchemyAPIMultipleAuthorCandidatesException.cs" />

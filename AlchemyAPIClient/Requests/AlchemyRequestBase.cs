@@ -22,6 +22,7 @@ namespace AlchemyAPIClient.Requests
         protected abstract string RequestPath { get; }
         private List<string> _requiredParameters = new List<string>();
         protected IEnumerable<string> RequiredParameters { get { return _requiredParameters; } }
+        protected int NumberOfRetriesForRequest { get; private set; } = 0;
         protected AlchemyRequestBase(AlchemyClient _client)
         {
             if (_client == null)
@@ -48,7 +49,7 @@ namespace AlchemyAPIClient.Requests
                 var address = new Uri(client.EndPointUrl + RequestPath);
                 var responseBytes = await wreq.UploadValuesTaskAsync(address, "POST", AdditionalParameters);
                 var textResponse = Encoding.UTF8.GetString(responseBytes);
-                return GetTypedResponseFromText<responseType, dataType>(textResponse) as responseType;
+                return await GetTypedResponseFromText<responseType, dataType>(textResponse) as responseType;
             }
         }
         protected virtual void AdditionalParametersHandling()
@@ -71,14 +72,36 @@ namespace AlchemyAPIClient.Requests
             if (!AdditionalParameters.AllKeys.Contains(outputModeKey))
                 AdditionalParameters.Add(outputModeKey, jsonOutputMode);
         }
-        protected virtual T GetTypedResponseFromText<T, U>(string textResponse) where T : AlchemyResponseBase<U> where U : class
+        protected virtual async Task<T> GetTypedResponseFromText<T, U>(string textResponse) where T : AlchemyResponseBase<U> where U : class
         {
-            var typedResponse = JsonConvert.DeserializeObject<T>(textResponse);
+            var typedResponse = await Task.Factory.StartNew(() => JsonConvert.DeserializeObject<T>(textResponse));
             if (ThrowExceptionsOnErrors && typedResponse.Status == AlchemyAPIResponseStatus.ERROR)
-                throw AlchemyAPIServiceCallException.GetValidException(typedResponse.StatusInfo);
+                try
+                {
+                    throw AlchemyAPIServiceCallException.GetValidException(typedResponse.StatusInfo);
+                }
+                catch (AlchemyAPICannotRetrieveException)
+                {
+                    typedResponse = await retryCall<T, U>(typedResponse);
+                }
+                catch (AlchemyAPICannotRetrieveDNSTimeoutException)
+                {
+                    typedResponse = await retryCall<T, U>(typedResponse);
+                }
             return typedResponse;
         }
+        private async Task<T> retryCall<T, U>(T typedResponse)
+            where T : AlchemyResponseBase<U>
+            where U : class
+        {
+            if (NumberOfRetriesForRequest < client.MaxRetriesWhenTimeOut)
+            {
+                NumberOfRetriesForRequest++;
+                typedResponse = await GetResponse() as T;
+            }
 
+            return typedResponse;
+        }
         protected void AddOrUpdateParameter(string name, int value)
         {
             AddOrUpdateParameter(name, value.ToString());

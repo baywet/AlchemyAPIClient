@@ -30,8 +30,8 @@ namespace AlchemyAPIClient.UnitTest
                     //Swallowing these ones because it can happen on regular docs
                 }
             }
-            Assert.IsTrue(responses.Select(x => x.Status).All(x => x == AlchemyAPIResponseStatus.OK));
-            Assert.IsTrue(responses.Select(x => x.Author).Any(x => !string.IsNullOrWhiteSpace(x)));
+            Assert.IsTrue(responses.Where(x => x != null).Select(x => x.Status).All(x => x == AlchemyAPIResponseStatus.OK));
+            Assert.IsTrue(responses.Where(x => x != null).Select(x => x.Author).Any(x => !string.IsNullOrWhiteSpace(x)));
         }
     }
 }
