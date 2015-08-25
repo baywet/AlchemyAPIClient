@@ -54,6 +54,7 @@
       <DependentUpon>AlchemyAPIClientResources.resx</DependentUpon>
     </Compile>
     <Compile Include="AlchemyAuthors.cs" />
+    <Compile Include="AlchemyFeed.cs" />
     <Compile Include="AlchemyObject.cs" />
     <Compile Include="AlchemyPublicationDate.cs" />
     <Compile Include="AlchemyRelation.cs" />
@@ -76,6 +77,9 @@
     <Compile Include="AlchemySentiment.cs" />
     <Compile Include="Exceptions\AlchemyAPIInvalidKeyException.cs" />
     <Compile Include="Exceptions\AlchemyAPIUnsupportedLanguageException.cs" />
+    <Compile Include="Requests\Feed\AlchemyFeedRequestBase.cs" />
+    <Compile Include="Requests\Feed\AlchemyHtmlFeedRequest.cs" />
+    <Compile Include="Requests\Feed\AlchemyUrlFeedRequest.cs" />
     <Compile Include="Requests\IAlchemyAPITextCombinableRequest.cs" />
     <Compile Include="Requests\IAlchemyAPIUrlCombinableRequest.cs" />
     <Compile Include="Requests\IAlchemyAPIHtmlCombinableRequest.cs" />
@@ -150,6 +154,7 @@
     <Compile Include="Responses\AlchemyAuthorsResponse.cs" />
     <Compile Include="Responses\AlchemyConceptsResponse.cs" />
     <Compile Include="Responses\AlchemyEntitiesResponse.cs" />
+    <Compile Include="Responses\AlchemyFeedResponse.cs" />
     <Compile Include="Responses\AlchemyKeywordsResponse.cs" />
     <Compile Include="Responses\AlchemyLanguageResponse.cs" />
     <Compile Include="Responses\AlchemyPublicationDateResponse.cs" />

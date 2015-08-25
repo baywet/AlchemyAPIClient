@@ -61,6 +61,7 @@
     <Compile Include="AuthorTest.cs" />
     <Compile Include="DocumentsProvider.cs" />
     <Compile Include="EntitiesTest.cs" />
+    <Compile Include="Feed.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ConceptsTest.cs" />
     <Compile Include="PublicationDateTests.cs" />

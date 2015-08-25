@@ -22,7 +22,8 @@ namespace AlchemyAPIClient.UnitTest
                     new AlchemyUrlRelationsRequest(url,AlchemyClientProvider.AlchemyClient.Value),
                     new AlchemyUrlSentimentRequest(url, AlchemyClientProvider.AlchemyClient.Value),
                     new AlchemyUrlTaxonomiesRequest(url, AlchemyClientProvider.AlchemyClient.Value),
-                    new AlchemyUrlPublicationDateRequest(url, AlchemyClientProvider.AlchemyClient.Value)
+                    new AlchemyUrlPublicationDateRequest(url, AlchemyClientProvider.AlchemyClient.Value),
+                    new AlchemyUrlFeedRequest(url, AlchemyClientProvider.AlchemyClient.Value)
                 })
                 {
                 };
