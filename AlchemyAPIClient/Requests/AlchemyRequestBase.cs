@@ -41,7 +41,7 @@ namespace AlchemyAPIClient.Requests
         private NameValueCollection AdditionalParameters = new NameValueCollection();
         public async Task<responseType> GetResponse()
         {
-            CancellationTokenSource tokenSource = new CancellationTokenSource();
+            var tokenSource = new CancellationTokenSource();
             return await GetResponse(tokenSource.Token);
         }
         public virtual async Task<responseType> GetResponse(CancellationToken token)
