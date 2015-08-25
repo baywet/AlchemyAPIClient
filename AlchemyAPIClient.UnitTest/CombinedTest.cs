@@ -2,6 +2,8 @@
 using AlchemyAPIClient.Requests.Combined;
 using System.Collections.Generic;
 using AlchemyAPIClient.Requests;
+using AlchemyAPIClient.Responses;
+using System.Linq;
 
 namespace AlchemyAPIClient.UnitTest
 {
@@ -11,6 +13,7 @@ namespace AlchemyAPIClient.UnitTest
         [TestMethod]
         public void GetCombinedFromUrl()
         {
+            var responses = new List<AlchemyCombinedResponse<IAlchemyAPIUrlCombinableRequest>>();
             foreach (var url in UrlProvider.Uris.Value)
             {
                 var request = new AlchemyUrlCombinedRequest(AlchemyClientProvider.AlchemyClient.Value, new List<IAlchemyAPIUrlCombinableRequest>(){
@@ -27,20 +30,22 @@ namespace AlchemyAPIClient.UnitTest
                 })
                 {
                 };
-                var response = Utilities.getRequestResult(request);
-                Assert.IsNotNull(response.AuthorResponse);
-                Assert.IsNotNull(response.EntitiesResponse);
-                Assert.IsNotNull(response.KeywordsResponse);
-                Assert.IsNotNull(response.ConceptsResponse);
-                Assert.IsNotNull(response.TaxonomiesResponse);
-                Assert.IsNotNull(response.RelationResponse);
-                Assert.IsNotNull(response.SentimentResponse);
-                Assert.IsNotNull(response.TitleResponse);
+                responses.Add(Utilities.getRequestResult(request));
             }
+            Assert.IsTrue(responses.Select(x => x.Status).All(x => x == AlchemyAPIResponseStatus.OK));
+            Assert.IsTrue(responses.Select(x =>x.AuthorResponse).Any());
+            Assert.IsTrue(responses.Select(x =>x.EntitiesResponse).Any());
+            Assert.IsTrue(responses.Select(x =>x.KeywordsResponse).Any());
+            Assert.IsTrue(responses.Select(x =>x.ConceptsResponse).Any());
+            Assert.IsTrue(responses.Select(x =>x.TaxonomiesResponse).Any());
+            Assert.IsTrue(responses.Select(x =>x.RelationResponse).Any());
+            Assert.IsTrue(responses.Select(x =>x.SentimentResponse).Any());
+            Assert.IsTrue(responses.Select(x =>x.TitleResponse).Any());
         }
         [TestMethod]
         public void GetCombinedFromText()
         {
+            var responses = new List<AlchemyCombinedResponse<IAlchemyAPITextCombinableRequest>>();
             foreach (var text in DocumentsProvider.Documents.Value)
             {
                 var request = new AlchemyTextCombinedRequest(AlchemyClientProvider.AlchemyClient.Value, new List<IAlchemyAPITextCombinableRequest>(){
@@ -53,14 +58,15 @@ namespace AlchemyAPIClient.UnitTest
                 })
                 {
                 };
-                var response = Utilities.getRequestResult(request);
-                Assert.IsNotNull(response.EntitiesResponse);
-                Assert.IsNotNull(response.KeywordsResponse);
-                Assert.IsNotNull(response.ConceptsResponse);
-                Assert.IsNotNull(response.TaxonomiesResponse);
-                Assert.IsNotNull(response.RelationResponse);
-                Assert.IsNotNull(response.SentimentResponse);
+                responses.Add(Utilities.getRequestResult(request));
             }
+            Assert.IsTrue(responses.Select(x => x.Status).All(x => x == AlchemyAPIResponseStatus.OK));
+            Assert.IsTrue(responses.Select(x => x.EntitiesResponse).Any());
+            Assert.IsTrue(responses.Select(x => x.KeywordsResponse).Any());
+            Assert.IsTrue(responses.Select(x => x.ConceptsResponse).Any());
+            Assert.IsTrue(responses.Select(x => x.TaxonomiesResponse).Any());
+            Assert.IsTrue(responses.Select(x => x.RelationResponse).Any());
+            Assert.IsTrue(responses.Select(x => x.SentimentResponse).Any());
         }
     }
 }

@@ -22,8 +22,7 @@ namespace AlchemyAPIClient.UnitTest
                 responses.Add(Utilities.getRequestResult(request));
             }
             Assert.IsTrue(responses.Select(x => x.Status).All(x => x == AlchemyAPIResponseStatus.OK));
-            Assert.IsTrue(responses.SelectMany(x => x.Feeds).Any());
-            Assert.IsTrue(responses.SelectMany(x => x.Feeds).First().Feed != default(Uri));
+            Assert.IsTrue(responses.SelectMany(x => x.Feeds).Any(x => x.Feed != default(Uri)));
         }
     }
 }

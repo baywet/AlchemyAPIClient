@@ -1,10 +1,9 @@
 ﻿using AlchemyAPIClient.Requests;
+using AlchemyAPIClient.Responses;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AlchemyAPIClient.UnitTest
 {
@@ -14,16 +13,18 @@ namespace AlchemyAPIClient.UnitTest
         [TestMethod]
         public void GetPublicationDateFormUrl()
         {
+            var responses = new List<AlchemyPublicationDateResponse>();
             foreach (var url in UrlProvider.Uris.Value)
             {
                 var request = new AlchemyUrlPublicationDateRequest(url, AlchemyClientProvider.AlchemyClient.Value)
                 {
                 };
-                var response = Utilities.getRequestResult(request);
-                Assert.IsNotNull(response.PublicationDate);
-                Assert.IsTrue(!string.IsNullOrWhiteSpace(response.PublicationDate.Date));
-                Assert.IsTrue(response.PublicationDate.FormattedDate != default(DateTime));
+                responses.Add(Utilities.getRequestResult(request));
             }
+            Assert.IsTrue(responses.Select(x => x.Status).All(x => x == AlchemyAPIResponseStatus.OK));
+            Assert.IsTrue(responses.All(x => x.PublicationDate != null));
+            Assert.IsTrue(responses.Select(x => x.PublicationDate.Date).Any(x => !string.IsNullOrWhiteSpace(x)));
+            Assert.IsTrue(responses.Select(x => x.PublicationDate.FormattedDate).Any(x => x != default(DateTime)));
         }
     }
 }
