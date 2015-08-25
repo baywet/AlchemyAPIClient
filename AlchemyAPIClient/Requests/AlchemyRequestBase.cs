@@ -39,20 +39,25 @@ namespace AlchemyAPIClient.Requests
         public bool ThrowExceptionsOnErrors { get; set; }
         private AlchemyClient client;
         private NameValueCollection AdditionalParameters = new NameValueCollection();
-        public virtual async Task<responseType> GetResponse()
+        public async Task<responseType> GetResponse()
         {
-            using (var wreq = new WebClient())
+            CancellationTokenSource tokenSource = new CancellationTokenSource();
+            return await GetResponse(tokenSource.Token);
+        }
+        public virtual async Task<responseType> GetResponse(CancellationToken token)
+        {
+            using (var wreq = new WebClient())//TODO: replace by httpclient to have full chain cancellation token
             {
                 addDefaultParameters(wreq);
                 AdditionalParametersHandling();
                 checkRequiredParameters();
 
                 var address = new Uri(client.EndPointUrl + RequestPath);
-                var textResponse = await getTextResponse(wreq, address);
-                return await GetTypedResponseFromText<responseType, dataType>(textResponse) as responseType;
+                var textResponse = await getTextResponse(wreq, address, token);
+                return await GetTypedResponseFromText<responseType, dataType>(textResponse, token) as responseType;
             }
         }
-        private async Task<string> getTextResponse(WebClient wreq, Uri address)
+        private async Task<string> getTextResponse(WebClient wreq, Uri address, CancellationToken token)
         {
             try
             {
@@ -62,8 +67,8 @@ namespace AlchemyAPIClient.Requests
             catch (WebException) when (NumberOfRetriesForRequest < client.MaxRetriesWhenTimeOut)
             {
                 NumberOfRetriesForRequest++;
-                await Task.Delay(client.RetryWaitTimeForNetworkErrorsInMS);
-                return await getTextResponse(wreq, address);
+                await Task.Delay(client.RetryWaitTimeForNetworkErrorsInMS, token);
+                return await getTextResponse(wreq, address, token);
             }
         }
         protected virtual void AdditionalParametersHandling()
@@ -86,9 +91,9 @@ namespace AlchemyAPIClient.Requests
             if (!AdditionalParameters.AllKeys.Contains(outputModeKey))
                 AdditionalParameters.Add(outputModeKey, jsonOutputMode);
         }
-        protected virtual async Task<T> GetTypedResponseFromText<T, U>(string textResponse) where T : AlchemyResponseBase<U> where U : class
+        protected virtual async Task<T> GetTypedResponseFromText<T, U>(string textResponse, CancellationToken token) where T : AlchemyResponseBase<U> where U : class
         {
-            var typedResponse = await Task.Factory.StartNew(() => JsonConvert.DeserializeObject<T>(textResponse));
+            var typedResponse = await Task.Factory.StartNew(() => JsonConvert.DeserializeObject<T>(textResponse), token);
             if (ThrowExceptionsOnErrors && typedResponse.Status == AlchemyAPIResponseStatus.ERROR)
                 try
                 {
@@ -96,21 +101,21 @@ namespace AlchemyAPIClient.Requests
                 }
                 catch (AlchemyAPICannotRetrieveException) when (NumberOfRetriesForRequest < client.MaxRetriesWhenTimeOut)
                 {
-                    typedResponse = await retryCall<T, U>(typedResponse);
+                    typedResponse = await retryCall<T, U>(typedResponse, token);
                 }
                 catch (AlchemyAPICannotRetrieveDNSTimeoutException) when (NumberOfRetriesForRequest < client.MaxRetriesWhenTimeOut)
                 {
-                    typedResponse = await retryCall<T, U>(typedResponse);
+                    typedResponse = await retryCall<T, U>(typedResponse, token);
                 }
             typedResponse.NumberOfRetries = NumberOfRetriesForRequest;
             return typedResponse;
         }
-        private async Task<T> retryCall<T, U>(T typedResponse)
+        private async Task<T> retryCall<T, U>(T typedResponse, CancellationToken token)
             where T : AlchemyResponseBase<U>
             where U : class
         {
             NumberOfRetriesForRequest++;
-            return await GetResponse() as T;
+            return await GetResponse(token) as T;
         }
         protected void AddOrUpdateParameter(string name, int value)
         {
