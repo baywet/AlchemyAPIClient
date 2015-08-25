@@ -22,7 +22,7 @@ namespace AlchemyAPIClient.Requests
         protected abstract string RequestPath { get; }
         private List<string> _requiredParameters = new List<string>();
         protected IEnumerable<string> RequiredParameters { get { return _requiredParameters; } }
-        protected int NumberOfRetriesForRequest { get; private set; } = 0;
+        private int NumberOfRetriesForRequest { get; set; }
         protected AlchemyRequestBase(AlchemyClient _client)
         {
             if (_client == null)
@@ -80,27 +80,23 @@ namespace AlchemyAPIClient.Requests
                 {
                     throw AlchemyAPIServiceCallException.GetValidException(typedResponse.StatusInfo);
                 }
-                catch (AlchemyAPICannotRetrieveException)
+                catch (AlchemyAPICannotRetrieveException) when (NumberOfRetriesForRequest < client.MaxRetriesWhenTimeOut)
                 {
                     typedResponse = await retryCall<T, U>(typedResponse);
                 }
-                catch (AlchemyAPICannotRetrieveDNSTimeoutException)
+                catch (AlchemyAPICannotRetrieveDNSTimeoutException) when (NumberOfRetriesForRequest < client.MaxRetriesWhenTimeOut)
                 {
                     typedResponse = await retryCall<T, U>(typedResponse);
                 }
+            typedResponse.NumberOfRetries = NumberOfRetriesForRequest;
             return typedResponse;
         }
         private async Task<T> retryCall<T, U>(T typedResponse)
             where T : AlchemyResponseBase<U>
             where U : class
         {
-            if (NumberOfRetriesForRequest < client.MaxRetriesWhenTimeOut)
-            {
-                NumberOfRetriesForRequest++;
-                typedResponse = await GetResponse() as T;
-            }
-
-            return typedResponse;
+            NumberOfRetriesForRequest++;
+            return await GetResponse() as T;
         }
         protected void AddOrUpdateParameter(string name, int value)
         {
