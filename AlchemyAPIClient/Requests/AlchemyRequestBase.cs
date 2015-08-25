@@ -8,6 +8,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Cache;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace AlchemyAPIClient.Requests
@@ -47,9 +48,22 @@ namespace AlchemyAPIClient.Requests
                 checkRequiredParameters();
 
                 var address = new Uri(client.EndPointUrl + RequestPath);
-                var responseBytes = await wreq.UploadValuesTaskAsync(address, "POST", AdditionalParameters);
-                var textResponse = Encoding.UTF8.GetString(responseBytes);
+                var textResponse = await getTextResponse(wreq, address);
                 return await GetTypedResponseFromText<responseType, dataType>(textResponse) as responseType;
+            }
+        }
+        private async Task<string> getTextResponse(WebClient wreq, Uri address)
+        {
+            try
+            {
+                var responseBytes = await wreq.UploadValuesTaskAsync(address, "POST", AdditionalParameters);
+                return Encoding.UTF8.GetString(responseBytes);
+            }
+            catch (WebException) when (NumberOfRetriesForRequest < client.MaxRetriesWhenTimeOut)
+            {
+                NumberOfRetriesForRequest++;
+                await Task.Delay(client.RetryWaitTimeForNetworkErrorsInMS);
+                return await getTextResponse(wreq, address);
             }
         }
         protected virtual void AdditionalParametersHandling()
