@@ -54,12 +54,15 @@
       <DependentUpon>AlchemyAPIClientResources.resx</DependentUpon>
     </Compile>
     <Compile Include="AlchemyAuthors.cs" />
+    <Compile Include="AlchemyFeed.cs" />
     <Compile Include="AlchemyObject.cs" />
+    <Compile Include="AlchemyPublicationDate.cs" />
     <Compile Include="AlchemyRelation.cs" />
     <Compile Include="AlchemySubject.cs" />
     <Compile Include="AlchemyTaxonomy.cs" />
     <Compile Include="AlchemyVerb.cs" />
     <Compile Include="Exceptions\AlchemyAPICannotLocateAuthorException.cs" />
+    <Compile Include="Exceptions\AlchemyAPICannotRetrieveDNSTimeoutException.cs" />
     <Compile Include="Exceptions\AlchemyAPICannotRetrieveException.cs" />
     <Compile Include="Exceptions\AlchemyAPIContentExceedsSizeLimitException.cs" />
     <Compile Include="Exceptions\AlchemyAPIMultipleAuthorCandidatesException.cs" />
@@ -75,6 +78,9 @@
     <Compile Include="AlchemySentiment.cs" />
     <Compile Include="Exceptions\AlchemyAPIInvalidKeyException.cs" />
     <Compile Include="Exceptions\AlchemyAPIUnsupportedLanguageException.cs" />
+    <Compile Include="Requests\Feed\AlchemyFeedRequestBase.cs" />
+    <Compile Include="Requests\Feed\AlchemyHtmlFeedRequest.cs" />
+    <Compile Include="Requests\Feed\AlchemyUrlFeedRequest.cs" />
     <Compile Include="Requests\IAlchemyAPITextCombinableRequest.cs" />
     <Compile Include="Requests\IAlchemyAPIUrlCombinableRequest.cs" />
     <Compile Include="Requests\IAlchemyAPIHtmlCombinableRequest.cs" />
@@ -105,6 +111,9 @@
     <Compile Include="Requests\Language\AlchemyLanguageRequestBase.cs" />
     <Compile Include="Requests\Language\AlchemyTextLanguageRequest.cs" />
     <Compile Include="Requests\Language\AlchemyUrlLanguageRequest.cs" />
+    <Compile Include="Requests\PublicationDate\AlchemyHtmlPublicationDateRequest.cs" />
+    <Compile Include="Requests\PublicationDate\AlchemyPublicationDateRequestBase.cs" />
+    <Compile Include="Requests\PublicationDate\AlchemyUrlPublicationDateRequest.cs" />
     <Compile Include="Requests\Relations\AlchemyHtmlRelationsRequest.cs" />
     <Compile Include="Requests\Relations\AlchemyHtmlRelationsRequestBase.cs" />
     <Compile Include="Requests\Relations\AlchemyRelationsRequestBase.cs" />
@@ -146,8 +155,10 @@
     <Compile Include="Responses\AlchemyAuthorsResponse.cs" />
     <Compile Include="Responses\AlchemyConceptsResponse.cs" />
     <Compile Include="Responses\AlchemyEntitiesResponse.cs" />
+    <Compile Include="Responses\AlchemyFeedResponse.cs" />
     <Compile Include="Responses\AlchemyKeywordsResponse.cs" />
     <Compile Include="Responses\AlchemyLanguageResponse.cs" />
+    <Compile Include="Responses\AlchemyPublicationDateResponse.cs" />
     <Compile Include="Responses\AlchemyRelationsResponse.cs" />
     <Compile Include="Responses\AlchemyResponseBase.cs" />
     <Compile Include="Responses\AlchemySentimentResponse.cs" />

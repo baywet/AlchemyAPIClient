@@ -120,6 +120,9 @@
   <data name="cannot_locate_author_error" xml:space="preserve">
     <value>Cannot locate the author of this resource</value>
   </data>
+  <data name="cannot_retrieve_dns_timeout" xml:space="preserve">
+    <value>Cannot retrieve the resource because of a DNS timeout</value>
+  </data>
   <data name="cannot_retrieve_error" xml:space="preserve">
     <value>Cannot retrieve content for analysis</value>
   </data>

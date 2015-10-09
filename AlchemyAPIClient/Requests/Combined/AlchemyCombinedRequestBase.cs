@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace AlchemyAPIClient.Requests.Combined
 {
@@ -17,25 +19,25 @@ namespace AlchemyAPIClient.Requests.Combined
             CombinedCalls = combinedCalls;
             AddRequiredParameter(extractKey);
         }
-        protected override T GetTypedResponseFromText<T, U>(string textResponse)
+        protected override async Task<T> GetTypedResponseFromText<T, U>(string textResponse, CancellationToken token)
         {
-            var combined = base.GetTypedResponseFromText<AlchemyCombinedResponse<requestType>, IEnumerable<AlchemyResponseBase<requestType>>>(textResponse);
+            var combined = await base.GetTypedResponseFromText<AlchemyCombinedResponse<requestType>, IEnumerable<AlchemyResponseBase<requestType>>>(textResponse, token);
             if (CombinedCalls.Any(x => x is AlchemyAuthorRequestBase))
-                combined.AuthorResponse = base.GetTypedResponseFromText<AlchemyAuthorResponse, string>(textResponse);
+                combined.AuthorResponse = await base.GetTypedResponseFromText<AlchemyAuthorResponse, string>(textResponse, token);
             if (CombinedCalls.Any(x => x is AlchemySentimentRequestBase))
-                combined.SentimentResponse = base.GetTypedResponseFromText<AlchemySentimentResponse, AlchemySentiment>(textResponse);
+                combined.SentimentResponse = await base.GetTypedResponseFromText<AlchemySentimentResponse, AlchemySentiment>(textResponse, token);
             if (CombinedCalls.Any(x => x is AlchemyKeywordsRequestBase))
-                combined.KeywordsResponse = base.GetTypedResponseFromText<AlchemyKeywordsResponse, AlchemyKeyword>(textResponse);
+                combined.KeywordsResponse = await base.GetTypedResponseFromText<AlchemyKeywordsResponse, AlchemyKeyword>(textResponse, token);
             if (CombinedCalls.Any(x => x is AlchemyEntitiesRequestBase))
-                combined.EntitiesResponse = base.GetTypedResponseFromText<AlchemyEntitiesResponse, AlchemyEntity>(textResponse);
+                combined.EntitiesResponse = await base.GetTypedResponseFromText<AlchemyEntitiesResponse, AlchemyEntity>(textResponse, token);
             if (CombinedCalls.Any(x => x is AlchemyConceptsRequestBase))
-                combined.ConceptsResponse = base.GetTypedResponseFromText<AlchemyConceptsResponse, AlchemyConcept>(textResponse);
+                combined.ConceptsResponse = await base.GetTypedResponseFromText<AlchemyConceptsResponse, AlchemyConcept>(textResponse, token);
             if (CombinedCalls.Any(x => x is AlchemyRelationsRequestBase))
-                combined.RelationResponse = base.GetTypedResponseFromText<AlchemyRelationsResponse, AlchemyRelation>(textResponse);
+                combined.RelationResponse = await base.GetTypedResponseFromText<AlchemyRelationsResponse, AlchemyRelation>(textResponse, token);
             if (CombinedCalls.Any(x => x is AlchemyTaxonomiesRequestBase))
-                combined.TaxonomiesResponse = base.GetTypedResponseFromText<AlchemyTaxonomiesResponse, AlchemyTaxonomy>(textResponse);
+                combined.TaxonomiesResponse = await base.GetTypedResponseFromText<AlchemyTaxonomiesResponse, AlchemyTaxonomy>(textResponse, token);
             if (CombinedCalls.Any(x => x is AlchemyTitleRequestBase))
-                combined.TitleResponse = base.GetTypedResponseFromText<AlchemyTitleResponse, string>(textResponse);
+                combined.TitleResponse = await base.GetTypedResponseFromText<AlchemyTitleResponse, string>(textResponse, token);
             return combined as T;
         }
         protected override void AdditionalParametersHandling()

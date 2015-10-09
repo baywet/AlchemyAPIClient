@@ -2,13 +2,14 @@
 {
     public abstract class AlchemyResponseBase<T> where T : class
     {
-        public AlchemyAPIResponseStatus Status { get; set; }
-        public string Usage { get; set; }
-        public string Url { get; set; }
-        public string Language { get; set; }
-        public int TotalTransactions { get; set; }
-        public string Text { get; set; }
-        public string StatusInfo { get; set; }
+        public AlchemyAPIResponseStatus Status { get; internal set; }
+        public string Usage { get; internal set; }
+        public string Url { get; internal set; }
+        public string Language { get; internal set; }
+        public int TotalTransactions { get; internal set; }
+        public string Text { get; internal set; }
+        public string StatusInfo { get; internal set; }
+        public int NumberOfRetries { get; internal set; }
     }
     public enum AlchemyAPIResponseStatus
     {

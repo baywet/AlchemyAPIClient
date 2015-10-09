@@ -23,6 +23,8 @@ namespace AlchemyAPIClient.Exceptions
                     return new AlchemyAPIMultipleAuthorCandidatesException();
                 case "content-exceeds-size-limit":
                     return new AlchemyAPIContentExceedsSizeLimitException();
+                case "cannot-retrieve:operation-timeout:cannot-resolve-dns":
+                    return new AlchemyAPICannotRetrieveDNSTimeoutException();
                 default:
                     return new AlchemyAPIServiceCallException(subStatus);
             }
