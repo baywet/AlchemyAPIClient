@@ -65,6 +65,7 @@
     <Compile Include="Exceptions\AlchemyAPICannotRetrieveDNSTimeoutException.cs" />
     <Compile Include="Exceptions\AlchemyAPICannotRetrieveException.cs" />
     <Compile Include="Exceptions\AlchemyAPIContentExceedsSizeLimitException.cs" />
+    <Compile Include="Exceptions\AlchemyAPIDailyLimitExceededException.cs" />
     <Compile Include="Exceptions\AlchemyAPIMultipleAuthorCandidatesException.cs" />
     <Compile Include="Exceptions\AlchemyAPIPageNotHTMLException.cs" />
     <Compile Include="Exceptions\AlchemyAPIServiceCallException.cs" />

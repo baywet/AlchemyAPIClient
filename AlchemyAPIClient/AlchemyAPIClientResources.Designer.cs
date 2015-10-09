@@ -97,6 +97,15 @@ namespace AlchemyAPIClient {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The daily limit of requests to the API is exceeded.
+        /// </summary>
+        internal static string daily_limit_exceeded {
+            get {
+                return ResourceManager.GetString("daily_limit_exceeded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Your API key is invalid please check on www.alchemyapi.com.
         /// </summary>
         internal static string invalid_key_error {

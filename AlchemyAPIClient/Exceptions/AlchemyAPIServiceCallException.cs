@@ -25,6 +25,8 @@ namespace AlchemyAPIClient.Exceptions
                     return new AlchemyAPIContentExceedsSizeLimitException();
                 case "cannot-retrieve:operation-timeout:cannot-resolve-dns":
                     return new AlchemyAPICannotRetrieveDNSTimeoutException();
+                case "daily-transaction-limit-exceeded":
+
                 default:
                     return new AlchemyAPIServiceCallException(subStatus);
             }
