@@ -47,20 +47,20 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AlchemyAction.cs" />
+    <Compile Include="Entities\AlchemyAction.cs" />
     <Compile Include="AlchemyAPIClientResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AlchemyAPIClientResources.resx</DependentUpon>
     </Compile>
-    <Compile Include="AlchemyAuthors.cs" />
-    <Compile Include="AlchemyFeed.cs" />
-    <Compile Include="AlchemyObject.cs" />
-    <Compile Include="AlchemyPublicationDate.cs" />
-    <Compile Include="AlchemyRelation.cs" />
-    <Compile Include="AlchemySubject.cs" />
-    <Compile Include="AlchemyTaxonomy.cs" />
-    <Compile Include="AlchemyVerb.cs" />
+    <Compile Include="Entities\AlchemyAuthors.cs" />
+    <Compile Include="Entities\AlchemyFeed.cs" />
+    <Compile Include="Entities\AlchemyObject.cs" />
+    <Compile Include="Entities\AlchemyPublicationDate.cs" />
+    <Compile Include="Entities\AlchemyRelation.cs" />
+    <Compile Include="Entities\AlchemySubject.cs" />
+    <Compile Include="Entities\AlchemyTaxonomy.cs" />
+    <Compile Include="Entities\AlchemyVerb.cs" />
     <Compile Include="Exceptions\AlchemyAPICannotLocateAuthorException.cs" />
     <Compile Include="Exceptions\AlchemyAPICannotRetrieveDNSTimeoutException.cs" />
     <Compile Include="Exceptions\AlchemyAPICannotRetrieveException.cs" />
@@ -70,13 +70,13 @@
     <Compile Include="Exceptions\AlchemyAPIPageNotHTMLException.cs" />
     <Compile Include="Exceptions\AlchemyAPIServiceCallException.cs" />
     <Compile Include="AlchemyClient.cs" />
-    <Compile Include="AlchemyConcept.cs" />
-    <Compile Include="AlchemyDisambiguation.cs" />
-    <Compile Include="AlchemyEntity.cs" />
-    <Compile Include="AlchemyGraph.cs" />
-    <Compile Include="AlchemyKeyword.cs" />
-    <Compile Include="AlchemyQuotation.cs" />
-    <Compile Include="AlchemySentiment.cs" />
+    <Compile Include="Entities\AlchemyConcept.cs" />
+    <Compile Include="Entities\AlchemyDisambiguation.cs" />
+    <Compile Include="Entities\AlchemyEntity.cs" />
+    <Compile Include="Entities\AlchemyGraph.cs" />
+    <Compile Include="Entities\AlchemyKeyword.cs" />
+    <Compile Include="Entities\AlchemyQuotation.cs" />
+    <Compile Include="Entities\AlchemySentiment.cs" />
     <Compile Include="Exceptions\AlchemyAPIInvalidKeyException.cs" />
     <Compile Include="Exceptions\AlchemyAPIUnsupportedLanguageException.cs" />
     <Compile Include="Requests\Feed\AlchemyFeedRequestBase.cs" />
