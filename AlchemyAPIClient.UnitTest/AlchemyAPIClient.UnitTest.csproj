@@ -74,6 +74,7 @@
     <Compile Include="TaxonomiesTest.cs" />
     <Compile Include="RelationsTest.cs" />
     <Compile Include="CombinedTest.cs" />
+    <Compile Include="MicroFormat.cs" />
     <Compile Include="UrlProvider.cs" />
     <Compile Include="Utilities.cs" />
   </ItemGroup>

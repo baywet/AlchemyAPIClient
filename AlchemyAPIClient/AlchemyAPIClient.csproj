@@ -55,6 +55,7 @@
     </Compile>
     <Compile Include="Entities\AlchemyAuthors.cs" />
     <Compile Include="Entities\AlchemyFeed.cs" />
+    <Compile Include="Entities\AlchemyMicroFormat.cs" />
     <Compile Include="Entities\AlchemyObject.cs" />
     <Compile Include="Entities\AlchemyPublicationDate.cs" />
     <Compile Include="Entities\AlchemyRelation.cs" />
@@ -112,6 +113,9 @@
     <Compile Include="Requests\Language\AlchemyLanguageRequestBase.cs" />
     <Compile Include="Requests\Language\AlchemyTextLanguageRequest.cs" />
     <Compile Include="Requests\Language\AlchemyUrlLanguageRequest.cs" />
+    <Compile Include="Requests\MicroFormat\AlchemyHtmlMicroFormatRequest.cs" />
+    <Compile Include="Requests\MicroFormat\AlchemyMicroFormatRequestBase.cs" />
+    <Compile Include="Requests\MicroFormat\AlchemyUrlMicroFormatRequest.cs" />
     <Compile Include="Requests\PublicationDate\AlchemyHtmlPublicationDateRequest.cs" />
     <Compile Include="Requests\PublicationDate\AlchemyPublicationDateRequestBase.cs" />
     <Compile Include="Requests\PublicationDate\AlchemyUrlPublicationDateRequest.cs" />
@@ -159,6 +163,7 @@
     <Compile Include="Responses\AlchemyFeedResponse.cs" />
     <Compile Include="Responses\AlchemyKeywordsResponse.cs" />
     <Compile Include="Responses\AlchemyLanguageResponse.cs" />
+    <Compile Include="Responses\AlchemyMicroFormatResponse.cs" />
     <Compile Include="Responses\AlchemyPublicationDateResponse.cs" />
     <Compile Include="Responses\AlchemyRelationsResponse.cs" />
     <Compile Include="Responses\AlchemyResponseBase.cs" />
