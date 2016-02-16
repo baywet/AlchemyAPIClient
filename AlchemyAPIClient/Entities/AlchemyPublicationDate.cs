@@ -21,6 +21,7 @@ namespace AlchemyAPIClient
     public enum AlchemyConfident
     {
         NotProvided,
-        No
+        No,
+        Yes
     }
 }
