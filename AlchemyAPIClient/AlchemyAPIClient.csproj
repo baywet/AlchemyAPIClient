@@ -47,6 +47,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Converters\BoolConverter.cs" />
     <Compile Include="Entities\AlchemyAction.cs" />
     <Compile Include="AlchemyAPIClientResources.Designer.cs">
       <AutoGen>True</AutoGen>
