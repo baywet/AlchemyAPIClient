@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>AlchemyAPIClient</id>
-    <title>AlchemyAPIClient</title>
+    <title>[Deprecated] IBM.WatsonDeveloperCloud</title>
     <version>1.4.0.0</version>
     <authors>Vincent BIRET</authors>
     <owners>Vincent BIRET</owners>
@@ -18,6 +18,6 @@
     <frameworkAssemblies>
       <frameworkAssembly assemblyName="System" targetFramework="net40" />
     </frameworkAssemblies>
-    <releaseNotes></releaseNotes>
+    <releaseNotes>Deprecated package</releaseNotes>
   </metadata>
 </package>
