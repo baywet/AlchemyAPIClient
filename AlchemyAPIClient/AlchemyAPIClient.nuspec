@@ -18,6 +18,6 @@
     <frameworkAssemblies>
       <frameworkAssembly assemblyName="System" targetFramework="net40" />
     </frameworkAssemblies>
-    <releaseNotes></releaseNotes>
+    <releaseNotes>Deprecated package</releaseNotes>
   </metadata>
 </package>
